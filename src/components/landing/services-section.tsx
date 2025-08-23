@@ -39,7 +39,7 @@ const services = [
 const ServiceCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => {
   return (
     <Card
-      className="group relative h-full transform-gpu overflow-hidden rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-xl transition-all duration-300 hover:shadow-2xl hover:shadow-gray-700/20"
+      className="group relative h-full transform-gpu overflow-hidden rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-gray-700/20"
       style={{ perspective: '1000px' }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

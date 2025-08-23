@@ -83,7 +83,7 @@ export default function TestimonialsSection() {
             <div className="flex w-max animate-scroll">
               {duplicatedTestimonials.map((testimonial, index) => (
                 <div key={index} className="w-[350px] flex-shrink-0 px-4 md:w-[450px]">
-                  <Card className="flex h-full flex-col justify-between rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-xl">
+                  <Card className="flex h-full flex-col justify-between rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-2xl">
                     <CardContent className="p-6">
                       <p className="text-lg text-gray-300 italic">"{testimonial.quote}"</p>
                       <div className="mt-6 flex items-center">
