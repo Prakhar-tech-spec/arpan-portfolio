@@ -1,15 +1,8 @@
 'use client';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 import Image from 'next/image';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
-import Autoplay from "embla-carousel-autoplay"
+import { cn } from '@/lib/utils';
 
 const testimonials = [
   {
@@ -56,6 +49,8 @@ const testimonials = [
   },
 ];
 
+const duplicatedTestimonials = [...testimonials, ...testimonials];
+
 export default function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-20 md:py-32">
@@ -69,50 +64,39 @@ export default function TestimonialsSection() {
           </div>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
-          <Carousel
-            plugins={[
-              Autoplay({
-                delay: 2000,
-                stopOnInteraction: false,
-                stopOnMouseEnter: false,
-              }),
-            ]}
-            opts={{
-              align: 'start',
-              loop: true,
+           <div
+            className="group relative w-full overflow-hidden"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
             }}
-            className="w-full"
           >
-            <CarouselContent>
-              {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1 h-full">
-                    <Card className="flex h-full flex-col justify-between rounded-xl border-gray-800 bg-secondary">
-                      <CardContent className="p-6">
-                        <p className="text-lg text-gray-300 italic">"{testimonial.quote}"</p>
-                        <div className="mt-6 flex items-center">
-                          <Image
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            width={50}
-                            height={50}
-                            data-ai-hint={testimonial.dataAiHint}
-                            className="rounded-full"
-                          />
-                          <div className="ml-4">
-                            <p className="font-semibold text-white">{testimonial.name}</p>
-                            <p className="text-sm text-gray-400">{testimonial.title}</p>
-                          </div>
+            <div className="flex w-max animate-scroll group-hover:[animation-play-state:paused]">
+              {duplicatedTestimonials.map((testimonial, index) => (
+                <div key={index} className="w-[350px] flex-shrink-0 px-4 md:w-[450px]">
+                  <Card className="flex h-full flex-col justify-between rounded-xl border-gray-800 bg-secondary">
+                    <CardContent className="p-6">
+                      <p className="text-lg text-gray-300 italic">"{testimonial.quote}"</p>
+                      <div className="mt-6 flex items-center">
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          width={50}
+                          height={50}
+                          data-ai-hint={testimonial.dataAiHint}
+                          className="rounded-full"
+                        />
+                        <div className="ml-4">
+                          <p className="font-semibold text-white">{testimonial.name}</p>
+                          <p className="text-sm text-gray-400">{testimonial.title}</p>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
+            </div>
+          </div>
         </ScrollAnimationWrapper>
       </div>
     </section>
