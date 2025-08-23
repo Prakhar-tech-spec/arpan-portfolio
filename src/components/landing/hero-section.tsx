@@ -20,10 +20,10 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center md:items-start md:text-left text-white pb-20 md:justify-end">
         <ScrollAnimationWrapper className="w-full">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
-            <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
               An automation to
             </span>
-            <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">business transformation</span>
+            <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">business transformation</span>
           </h1>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper className="w-full">
