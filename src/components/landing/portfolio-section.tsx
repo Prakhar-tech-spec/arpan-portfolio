@@ -7,6 +7,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
+import { Badge } from '../ui/badge';
 
 const portfolioItems = [
   {
@@ -94,7 +95,8 @@ export default function PortfolioSection() {
       <div className="container mx-auto px-4 relative z-0">
         <ScrollAnimationWrapper>
           <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Our Work</h2>
+            <Badge variant="outline" className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl">Our Work</Badge>
+            <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Creativity in Action</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
               Take a look at some of the successful projects we've delivered for our clients.
             </p>
@@ -108,7 +110,7 @@ export default function PortfolioSection() {
                 key={filter}
                 variant="outline"
                 className={cn(
-                  'rounded-full border-gray-700 bg-transparent text-gray-400 transition-all hover:bg-gray-800 hover:text-white',
+                  'rounded-full border-gray-700 bg-transparent text-gray-400 transition-all hover:bg-gray-800 hover:text-white backdrop-blur-2xl',
                   activeFilter === filter && 'border-white bg-white text-black'
                 )}
                 onClick={() => setActiveFilter(filter)}
