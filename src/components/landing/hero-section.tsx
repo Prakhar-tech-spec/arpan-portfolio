@@ -20,7 +20,7 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center md:items-start md:text-left text-white pb-20 md:justify-end">
         <ScrollAnimationWrapper className="w-full">
           <div className="inline-flex items-center justify-center rounded-full bg-gray-900/50 backdrop-blur-2xl border border-white/10 px-3 py-1.5 mb-4">
-            <div className="flex items-center space-x-1 text-yellow-400">
+            <div className="flex items-center space-x-1 text-white">
               <Star className="h-4 w-4 fill-current" />
               <Star className="h-4 w-4 fill-current" />
               <Star className="h-4 w-4 fill-current" />
