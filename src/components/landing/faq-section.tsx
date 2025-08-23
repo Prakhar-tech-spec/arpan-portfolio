@@ -9,29 +9,24 @@ import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 
 const faqs = [
   {
-    question: 'What types of businesses do you work with?',
+    question: 'How is We Brand You different?',
     answer:
-      "We work with a diverse range of clients, from startups and small businesses to large enterprises across various industries. Our strategies are tailored to meet the unique needs and goals of each business.",
+      "We focus on a holistic approach, combining data-driven strategies with creative execution. Our team becomes an extension of your team, dedicated to achieving your business objectives with a transparent and collaborative process.",
   },
   {
-    question: 'How long does it take to see results?',
+    question: 'What kind of results can I expect?',
     answer:
-      "The timeline for results varies depending on the services and your specific goals. For SEO, it can take 3-6 months to see significant organic growth, while social media and PPC campaigns can show results much faster. We focus on sustainable, long-term growth.",
+      "You can expect measurable improvements in key metrics such as brand visibility, lead generation, and ROI. We set clear goals from the outset and provide regular reports to track our progress towards achieving them.",
   },
   {
-    question: 'How do you measure the success of a campaign?',
+    question: 'How do we communicate?',
     answer:
-      "We use a variety of key performance indicators (KPIs) to measure success, including website traffic, conversion rates, lead generation, engagement metrics, and return on investment (ROI). We provide regular, transparent reports to track progress.",
+      "We believe in transparent and frequent communication. You'll have a dedicated account manager and we will set up a shared channel (like Slack) for real-time updates. We also provide weekly and monthly reports, and are always available for a call.",
   },
   {
-    question: 'What is your pricing model?',
+    question: 'If I cancel, do I get a refund?',
     answer:
-      "Our pricing is customized based on the scope of the project and the services required. We offer project-based pricing as well as monthly retainers. Contact us for a detailed proposal tailored to your needs.",
-  },
-  {
-    question: "Do you offer one-time projects or only long-term contracts?",
-    answer:
-      "We are flexible and offer both one-time projects (like a website redesign or a specific campaign) and long-term partnerships for ongoing services like SEO, content marketing, and social media management.",
+      "Our services are billed on a monthly basis. If you choose to cancel, your service will continue until the end of the current billing cycle. While we don't offer refunds for services already rendered, you are free to cancel at any time without any long-term commitment.",
   },
 ];
 
