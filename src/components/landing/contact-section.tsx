@@ -5,8 +5,47 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 import { Mail, Phone } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { useToast } from '@/hooks/use-toast';
+
+const formSchema = z.object({
+  name: z.string().min(1, { message: 'Name is required.' }),
+  email: z.string().email({ message: 'Please enter a valid email.' }),
+  message: z.string().min(1, { message: 'Message is required.' }),
+});
 
 export default function ContactSection() {
+  const { toast } = useToast();
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
+  });
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      // Here you would typically send the form data to your backend
+      console.log(values);
+      toast({
+        title: 'Message Sent!',
+        description: "We've received your message and will get back to you shortly.",
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: 'There was a problem with your request. Please try again.',
+      });
+    }
+  }
+
   return (
     <section id="contact" className="py-20 md:py-32">
       <div className="container mx-auto px-4">
@@ -44,14 +83,68 @@ export default function ContactSection() {
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper>
-            <form className="space-y-6">
-              <Input type="text" placeholder="Your Name" className="h-12 bg-secondary border-gray-700 focus:ring-white" />
-              <Input type="email" placeholder="Your Email" className="h-12 bg-secondary border-gray-700 focus:ring-white" />
-              <Textarea placeholder="Your Message" rows={5} className="bg-secondary border-gray-700 focus:ring-white" />
-              <Button type="submit" size="lg" className="w-full h-12 text-lg font-semibold bg-white text-black hover:bg-gray-200 relative overflow-hidden group">
-                <span className="relative z-10">Send Message</span>
-              </Button>
-            </form>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          placeholder="Your Name"
+                          {...field}
+                          className="h-12 bg-secondary border-gray-700 focus:ring-white"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          placeholder="Your Email"
+                          {...field}
+                          className="h-12 bg-secondary border-gray-700 focus:ring-white"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Your Message"
+                          rows={5}
+                          {...field}
+                          className="bg-secondary border-gray-700 focus:ring-white"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full h-12 text-lg font-semibold bg-white text-black hover:bg-gray-200 relative overflow-hidden group"
+                  disabled={form.formState.isSubmitting}
+                >
+                  <span className="relative z-10">{form.formState.isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                </Button>
+              </form>
+            </Form>
           </ScrollAnimationWrapper>
         </div>
       </div>
