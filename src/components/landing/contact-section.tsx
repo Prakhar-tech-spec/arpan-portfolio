@@ -10,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
+import { Badge } from '../ui/badge';
 
 const formSchema = z.object({
   name: z.string().min(1, { message: 'Name is required.' }),
@@ -60,7 +61,10 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 relative z-0">
         <ScrollAnimationWrapper>
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Let's Build Together</h2>
+            <Badge variant="outline" className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl">
+              Start Now
+            </Badge>
+            <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Create Something Great</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
               Ready to start your next adventure? Drop us a line.
             </p>
