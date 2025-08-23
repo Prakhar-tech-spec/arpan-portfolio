@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -31,8 +32,10 @@ export default function HeroSection() {
           </p>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
-          <Button size="lg" className="mt-8 rounded-full px-8 py-6 text-lg font-semibold">
-            BOOK YOUR FREE STRATEGY CALL
+          <Button asChild size="lg" className="mt-8 rounded-full px-8 py-6 text-lg font-semibold">
+            <Link href="https://calendly.com/arpanadventure/30min" target="_blank">
+              BOOK YOUR FREE STRATEGY CALL
+            </Link>
           </Button>
         </ScrollAnimationWrapper>
       </div>
