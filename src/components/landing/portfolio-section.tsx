@@ -57,6 +57,18 @@ const portfolioItems = [
     imageUrl: 'https://placehold.co/600x800.png',
     dataAiHint: 'dashboard ui',
   },
+  {
+    title: 'Brand Story Film',
+    category: 'Video Editing',
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'filmmaking camera',
+  },
+  {
+    title: 'Animated Explainer',
+    category: 'Video Editing',
+    imageUrl: 'https://placehold.co/600x800.png',
+    dataAiHint: 'animation motion',
+  },
 ];
 
 const filters = ['All Work', 'Video Editing', 'Graphics & Thumbnails', 'Web & App', 'Paid Ads', 'Social Media', 'AI Agents'];
@@ -65,7 +77,7 @@ export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState('All Work');
 
   const filteredItems = activeFilter === 'All Work'
-    ? portfolioItems
+    ? portfolioItems.filter((item) => item.category === 'Video Editing').slice(0, 4)
     : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
