@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { ArrowDown, Instagram, Facebook, Linkedin, Star } from 'lucide-react';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 import Link from 'next/link';
 
@@ -19,6 +19,17 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center md:items-start md:text-left text-white pb-20 md:justify-end">
         <ScrollAnimationWrapper className="w-full">
+          <div className="inline-flex items-center justify-center rounded-full bg-gray-900/50 backdrop-blur-2xl border border-white/10 px-4 py-2 mb-4">
+            <div className="flex items-center space-x-1 text-yellow-400">
+              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-current" />
+            </div>
+            <span className="ml-3 text-sm font-medium text-white">4.9 Stars</span>
+          </div>
+
           <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
             <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
               An automation to
