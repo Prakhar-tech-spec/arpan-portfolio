@@ -26,7 +26,7 @@ export default function StatsSection() {
         <ScrollAnimationWrapper>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center p-4 bg-gray-900/50 backdrop-blur-sm rounded-lg">
+              <div key={index} className="text-center p-4 rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-xl">
                 <div className="text-5xl font-bold text-white sm:text-6xl md:text-7xl tracking-tighter">
                   <AnimatedCounter target={stat.value} />
                   <span>{stat.suffix}</span>
