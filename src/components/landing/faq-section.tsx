@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
+import { Badge } from '../ui/badge';
 
 const faqs = [
   {
@@ -45,8 +46,11 @@ export default function FaqSection() {
       <div className="container mx-auto px-4 relative z-0">
         <ScrollAnimationWrapper>
           <div className="mb-16 text-center">
+            <Badge variant="outline" className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl">
+              FAQ's
+            </Badge>
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">
-              Frequently Asked Questions
+              Answers Made Simple
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
               Have questions? We've got answers.
