@@ -44,13 +44,13 @@ export default function HeroSection() {
       </div>
 
       <div className="absolute bottom-10 right-10 z-10 hidden md:flex flex-col space-y-4">
-        <Link href="#" aria-label="Instagram">
+        <Link href="https://www.instagram.com/arpanigcoach?igsh=OGRuNnRyeHVqNzBr" aria-label="Instagram" target="_blank">
           <Instagram className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
         </Link>
-        <Link href="#" aria-label="Facebook">
+        <Link href="https://www.facebook.com" aria-label="Facebook" target="_blank">
           <Facebook className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
         </Link>
-        <Link href="#" aria-label="LinkedIn">
+        <Link href="https://www.linkedin.com/in/arpan-dey-5369212a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" target="_blank">
           <Linkedin className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
         </Link>
       </div>
