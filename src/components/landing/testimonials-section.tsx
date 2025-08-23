@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 import { cn } from '@/lib/utils';
+import { Badge } from '../ui/badge';
 
 const testimonials = [
   {
@@ -66,6 +67,9 @@ export default function TestimonialsSection() {
       <div className="container mx-auto px-4 relative z-0">
         <ScrollAnimationWrapper>
           <div className="mb-16 text-center">
+            <Badge variant="outline" className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl">
+              Testimonial
+            </Badge>
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">What Our Clients Say</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
               We're proud to have earned the trust of amazing brands.
@@ -83,7 +87,7 @@ export default function TestimonialsSection() {
             <div className="flex w-max animate-scroll">
               {duplicatedTestimonials.map((testimonial, index) => (
                 <div key={index} className="w-[350px] flex-shrink-0 px-4 md:w-[450px]">
-                  <Card className="flex h-full flex-col justify-between rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-2xl">
+                  <Card className="flex h-full flex-col justify-between rounded-xl border-none bg-gray-900/50 backdrop-blur-sm">
                     <CardContent className="p-6">
                       <p className="text-lg text-gray-300 italic">"{testimonial.quote}"</p>
                       <div className="mt-6 flex items-center">
