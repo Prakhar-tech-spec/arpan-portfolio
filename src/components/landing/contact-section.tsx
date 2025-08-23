@@ -94,7 +94,7 @@ export default function ContactSection() {
                         <Input
                           placeholder="Your Name"
                           {...field}
-                          className="h-12 bg-secondary border-gray-700 focus:ring-white"
+                          className="h-12 bg-gray-800/50 border-gray-700 focus:ring-white"
                         />
                       </FormControl>
                       <FormMessage />
@@ -111,7 +111,7 @@ export default function ContactSection() {
                           type="email"
                           placeholder="Your Email"
                           {...field}
-                          className="h-12 bg-secondary border-gray-700 focus:ring-white"
+                          className="h-12 bg-gray-800/50 border-gray-700 focus:ring-white"
                         />
                       </FormControl>
                       <FormMessage />
@@ -128,7 +128,7 @@ export default function ContactSection() {
                           placeholder="Your Message"
                           rows={5}
                           {...field}
-                          className="bg-secondary border-gray-700 focus:ring-white"
+                          className="bg-gray-800/50 border-gray-700 focus:ring-white"
                         />
                       </FormControl>
                       <FormMessage />

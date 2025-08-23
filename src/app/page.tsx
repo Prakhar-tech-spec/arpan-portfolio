@@ -7,7 +7,7 @@ import TestimonialsSection from '@/components/landing/testimonials-section';
 import FaqSection from '@/components/landing/faq-section';
 import ContactSection from '@/components/landing/contact-section';
 import Footer from '@/components/landing/footer';
-import { Separator } from '@/components/ui/separator';
+import VideoBackground from '@/components/video-background';
 
 export default function Home() {
   return (
@@ -15,12 +15,14 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <ServicesSection />
-        <StatsSection />
-        <PortfolioSection />
-        <TestimonialsSection />
-        <FaqSection />
-        <ContactSection />
+        <VideoBackground>
+          <ServicesSection />
+          <StatsSection />
+          <PortfolioSection />
+          <TestimonialsSection />
+          <FaqSection />
+          <ContactSection />
+        </VideoBackground>
       </main>
       <Footer />
     </div>

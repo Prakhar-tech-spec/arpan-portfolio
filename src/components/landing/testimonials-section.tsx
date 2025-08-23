@@ -71,10 +71,10 @@ export default function TestimonialsSection() {
               WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
             }}
           >
-            <div className="flex w-max animate-scroll group-hover:[animation-play-state:paused]">
+            <div className="flex w-max animate-scroll">
               {duplicatedTestimonials.map((testimonial, index) => (
                 <div key={index} className="w-[350px] flex-shrink-0 px-4 md:w-[450px]">
-                  <Card className="flex h-full flex-col justify-between rounded-xl border-gray-800 bg-secondary">
+                  <Card className="flex h-full flex-col justify-between rounded-xl border-gray-800 bg-gray-900/50 backdrop-blur-sm">
                     <CardContent className="p-6">
                       <p className="text-lg text-gray-300 italic">"{testimonial.quote}"</p>
                       <div className="mt-6 flex items-center">

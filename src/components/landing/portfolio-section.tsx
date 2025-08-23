@@ -16,10 +16,34 @@ const portfolioItems = [
     dataAiHint: 'cinematic video',
   },
   {
+    title: 'Product Demo Video',
+    category: 'Video Editing',
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'video production',
+  },
+  {
+    title: 'Brand Story Film',
+    category: 'Video Editing',
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'filmmaking camera',
+  },
+  {
+    title: 'Animated Explainer',
+    category: 'Video Editing',
+    imageUrl: 'https://placehold.co/600x800.png',
+    dataAiHint: 'animation motion',
+  },
+  {
     title: 'E-commerce App Launch',
     category: 'Web & App',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'mobile application',
+  },
+  {
+    title: 'SaaS Platform UI/UX',
+    category: 'Web & App',
+    imageUrl: 'https://placehold.co/600x800.png',
+    dataAiHint: 'dashboard ui',
   },
   {
     title: 'Viral Social Challenge',
@@ -45,30 +69,6 @@ const portfolioItems = [
     imageUrl: 'https://placehold.co/600x800.png',
     dataAiHint: 'ai robot',
   },
-  {
-    title: 'Product Demo Video',
-    category: 'Video Editing',
-    imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'video production',
-  },
-  {
-    title: 'SaaS Platform UI/UX',
-    category: 'Web & App',
-    imageUrl: 'https://placehold.co/600x800.png',
-    dataAiHint: 'dashboard ui',
-  },
-  {
-    title: 'Brand Story Film',
-    category: 'Video Editing',
-    imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'filmmaking camera',
-  },
-  {
-    title: 'Animated Explainer',
-    category: 'Video Editing',
-    imageUrl: 'https://placehold.co/600x800.png',
-    dataAiHint: 'animation motion',
-  },
 ];
 
 const filters = ['All Work', 'Video Editing', 'Graphics & Thumbnails', 'Web & App', 'Paid Ads', 'Social Media', 'AI Agents'];
@@ -81,7 +81,7 @@ export default function PortfolioSection() {
     : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-background">
+    <section id="portfolio" className="py-20 md:py-32">
       <div className="container mx-auto px-4">
         <ScrollAnimationWrapper>
           <div className="mb-12 text-center">
@@ -113,7 +113,7 @@ export default function PortfolioSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredItems.map((item, index) => (
             <ScrollAnimationWrapper key={`${item.title}-${index}`}>
-              <Card className="group relative overflow-hidden rounded-xl border-none h-full">
+              <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm">
                 <Image
                   src={item.imageUrl}
                   alt={item.title}

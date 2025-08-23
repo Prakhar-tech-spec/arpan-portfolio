@@ -32,7 +32,7 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section id="faq" className="py-20 md:py-32 bg-background">
+    <section id="faq" className="py-20 md:py-32">
       <div className="container mx-auto px-4">
         <ScrollAnimationWrapper>
           <div className="mb-16 text-center">
@@ -49,7 +49,7 @@ export default function FaqSection() {
           <div className="mx-auto max-w-3xl">
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border-gray-800">
+                <AccordionItem key={index} value={`item-${index}`} className="border-gray-800 bg-gray-900/50 backdrop-blur-sm rounded-lg mb-2 px-4">
                   <AccordionTrigger className="text-left text-lg font-semibold text-white hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
