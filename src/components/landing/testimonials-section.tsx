@@ -9,8 +9,30 @@ import {
 } from '@/components/ui/carousel';
 import Image from 'next/image';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
+import Autoplay from "embla-carousel-autoplay"
 
 const testimonials = [
+  {
+    quote: "ADVENTURE Marketing transformed our online presence. Their strategic approach to SEO and content doubled our traffic in just six months. A truly remarkable team!",
+    name: 'Jane Doe',
+    title: 'CEO, Innovate Inc.',
+    image: 'https://placehold.co/100x100.png',
+    dataAiHint: 'professional woman',
+  },
+  {
+    quote: "The creativity and dedication of the ADVENTURE team are unparalleled. They delivered a campaign that not only met but exceeded all our expectations. Highly recommended!",
+    name: 'John Smith',
+    title: 'Founder, Tech Solutions',
+    image: 'https://placehold.co/100x100.png',
+    dataAiHint: 'smiling man',
+  },
+  {
+    quote: "Working with ADVENTURE was a game-changer. Their insights into our brand and audience were spot-on, leading to a significant increase in engagement and conversions.",
+    name: 'Emily White',
+    title: 'Marketing Director, Lifestyle Co.',
+    image: 'https://placehold.co/100x100.png',
+    dataAiHint: 'business person',
+  },
   {
     quote: "ADVENTURE Marketing transformed our online presence. Their strategic approach to SEO and content doubled our traffic in just six months. A truly remarkable team!",
     name: 'Jane Doe',
@@ -48,6 +70,13 @@ export default function TestimonialsSection() {
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
           <Carousel
+            plugins={[
+              Autoplay({
+                delay: 2000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: false,
+              }),
+            ]}
             opts={{
               align: 'start',
               loop: true,
