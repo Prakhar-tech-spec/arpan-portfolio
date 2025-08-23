@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Instagram, Facebook, Linkedin } from 'lucide-react';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 import Link from 'next/link';
 
@@ -41,6 +41,18 @@ export default function HeroSection() {
       </div>
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:block">
         <ArrowDown className="h-8 w-8 text-white animate-bounce" />
+      </div>
+
+      <div className="absolute bottom-10 right-10 z-10 hidden md:flex flex-col space-y-4">
+        <Link href="#" aria-label="Instagram">
+          <Instagram className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
+        </Link>
+        <Link href="#" aria-label="Facebook">
+          <Facebook className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
+        </Link>
+        <Link href="#" aria-label="LinkedIn">
+          <Linkedin className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
+        </Link>
       </div>
     </section>
   );
