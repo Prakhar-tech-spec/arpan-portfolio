@@ -4,10 +4,10 @@ import AnimatedCounter from '../animated-counter';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 
 const stats = [
-  { value: 150, label: 'Projects Completed', suffix: '+' },
-  { value: 98, label: 'Client Satisfaction', suffix: '%' },
-  { value: 5, label: 'Years of Experience', suffix: '+' },
-  { value: 20, label: 'Expert Team Members', suffix: '+' },
+  { value: 50, label: 'Video Views', suffix: 'M+' },
+  { value: 50, label: 'Social Followers Gained', suffix: 'K+' },
+  { value: 20, label: 'YouTube Subscribers', suffix: 'K+' },
+  { value: 2, label: 'Organic Leads Generated', suffix: 'K+' },
 ];
 
 export default function StatsSection() {
