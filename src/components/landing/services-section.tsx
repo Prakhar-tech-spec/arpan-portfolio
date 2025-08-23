@@ -64,8 +64,17 @@ const ServiceCard = ({ icon, title, description }: { icon: React.ReactNode; titl
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section id="services" className="relative py-20 md:py-32 overflow-hidden">
+       <video
+        src="https://res.cloudinary.com/dj88p3xio/video/upload/v1755988879/background_gy5z5d.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover -z-10"
+      />
+      <div className="absolute inset-0 bg-black/70 -z-10" />
+      <div className="container mx-auto px-4 relative z-0">
         <ScrollAnimationWrapper>
           <div className="mb-16 text-center">
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Our Expertise</h2>

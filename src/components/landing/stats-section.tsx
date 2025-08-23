@@ -12,8 +12,17 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section id="stats" className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section id="stats" className="relative py-20 md:py-32 overflow-hidden">
+      <video
+        src="https://res.cloudinary.com/dj88p3xio/video/upload/v1755988879/background_gy5z5d.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover -z-10"
+      />
+      <div className="absolute inset-0 bg-black/70 -z-10" />
+      <div className="container mx-auto px-4 relative z-0">
         <ScrollAnimationWrapper>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat, index) => (
