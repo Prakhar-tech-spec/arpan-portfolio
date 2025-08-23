@@ -98,7 +98,7 @@ export default function PortfolioSection() {
             <Badge variant="outline" className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl">Our Work</Badge>
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Creativity in Action</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
-              Take a look at some of the successful projects we've delivered for our clients.
+              A glimpse into our successful projects.
             </p>
           </div>
         </ScrollAnimationWrapper>

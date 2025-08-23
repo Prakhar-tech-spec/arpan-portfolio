@@ -31,7 +31,7 @@ export default function StatsSection() {
             </Badge>
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Milestones & Achievements</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
-              Our track record speaks for itself. We deliver real results that drive growth and success for our clients.
+              Our track record speaks for itself.
             </p>
           </div>
         </ScrollAnimationWrapper>

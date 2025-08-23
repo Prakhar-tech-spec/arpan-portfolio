@@ -40,7 +40,7 @@ const services = [
 const ServiceCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => {
   return (
     <Card
-      className="group relative h-full transform-gpu overflow-hidden rounded-xl border border-white/10 bg-gray-500/20 backdrop-blur-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-gray-700/20"
+      className="group relative h-full transform-gpu overflow-hidden rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-gray-700/20"
       style={{ perspective: '1000px' }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -81,7 +81,7 @@ export default function ServicesSection() {
             <Badge variant="outline" className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl">Our Expertise</Badge>
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Crafting Excellence Daily</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
-              We deliver a complete suite of marketing services to transform your brand's digital presence.
+              We deliver a complete suite of marketing services to transform your brand.
             </p>
           </div>
         </ScrollAnimationWrapper>
