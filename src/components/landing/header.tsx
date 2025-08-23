@@ -41,6 +41,8 @@ export default function Header() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const whatsAppUrl = "https://api.whatsapp.com/send?phone=917029757375&text=Hi!%20I%E2%80%99m%20interested%20in%20your%20done-for-you%20creative%20and%20growth%20services.%20Can%20we%20connect%20to%20discuss%20what%20might%20be%20the%20best%20fit%3F";
+
   return (
     <header
       className={cn(
@@ -63,8 +65,10 @@ export default function Header() {
             ))}
           </nav>
           <div className="hidden md:block">
-            <Button variant="outline" className="rounded-full border-gray-600 hover:bg-white hover:text-black">
-              Get Started
+            <Button asChild variant="outline" className="rounded-full border-gray-600 hover:bg-white hover:text-black">
+              <Link href={whatsAppUrl} target="_blank">
+                Let's Chat
+              </Link>
             </Button>
           </div>
           <div className="md:hidden">
@@ -87,8 +91,10 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-             <Button variant="outline" className="rounded-full border-gray-600 hover:bg-white hover:text-black" onClick={() => setIsMenuOpen(false)}>
-              Get Started
+             <Button asChild variant="outline" className="rounded-full border-gray-600 hover:bg-white hover:text-black" onClick={() => setIsMenuOpen(false)}>
+               <Link href={whatsAppUrl} target="_blank">
+                Let's Chat
+               </Link>
             </Button>
           </nav>
         </div>
