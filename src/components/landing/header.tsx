@@ -6,11 +6,24 @@ import { Button } from '@/components/ui/button';
 import Logo from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 const navItems = [
   { href: '#services', label: 'Services' },
   { href: '#portfolio', label: 'Portfolio' },
   { href: '#testimonials', label: 'Testimonials' },
+  {
+    href: '#',
+    label: (
+      <span className="flex items-center">
+        Tools
+        <sup className="ml-1.5 -mt-2">
+          <Badge variant="secondary" className="text-xs bg-gray-700 text-gray-300">Soon</Badge>
+        </sup>
+      </span>
+    ),
+  },
+  { href: '#', label: 'Careers' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -64,9 +77,9 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-black/80 backdrop-blur-lg pb-4">
           <nav className="flex flex-col items-center space-y-4">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Link
-                key={item.href}
+                key={index}
                 href={item.href}
                 className="text-lg font-light text-gray-300 transition-colors hover:text-white"
                 onClick={() => setIsMenuOpen(false)}
