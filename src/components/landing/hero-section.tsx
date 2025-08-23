@@ -22,7 +22,7 @@ export default function HeroSection() {
             <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               An automation to
             </span>
-            <span className="block">business transformation</span>
+            <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">business transformation</span>
           </h1>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper className="w-full">
