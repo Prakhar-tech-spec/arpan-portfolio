@@ -1,12 +1,20 @@
 import Link from 'next/link';
-import { Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Twitter, Linkedin, Instagram, Facebook } from 'lucide-react';
 import Logo from '@/components/logo';
 import { Separator } from '../ui/separator';
 
 const socialLinks = [
-  { name: 'Twitter', icon: <Twitter className="h-5 w-5" />, href: '#' },
-  { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, href: '#' },
-  { name: 'Instagram', icon: <Instagram className="h-5 w-5" />, href: '#' },
+  {
+    name: 'Instagram',
+    icon: <Instagram className="h-5 w-5" />,
+    href: 'https://www.instagram.com/arpanigcoach?igsh=OGRuNnRyeHVqNzBr',
+  },
+  { name: 'Facebook', icon: <Facebook className="h-5 w-5" />, href: 'https://www.facebook.com' },
+  {
+    name: 'LinkedIn',
+    icon: <Linkedin className="h-5 w-5" />,
+    href: 'https://www.linkedin.com/in/arpan-dey-5369212a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+  },
 ];
 
 export default function Footer() {
@@ -20,6 +28,7 @@ export default function Footer() {
               <Link
                 key={link.name}
                 href={link.href}
+                target="_blank"
                 className="text-gray-400 transition-colors hover:text-white"
                 aria-label={link.name}
               >
