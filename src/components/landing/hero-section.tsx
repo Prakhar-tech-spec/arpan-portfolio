@@ -20,14 +20,14 @@ export default function HeroSection() {
         <ScrollAnimationWrapper className="w-full">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
             <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Where Creativity
+              An automation to
             </span>
-            <span className="block">Meets Strategy.</span>
+            <span className="block">business transformation</span>
           </h1>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper className="w-full">
           <p className="mt-6 max-w-2xl text-lg text-gray-300 md:text-xl mx-auto md:mx-0">
-            We are ADVENTURE, a digital marketing agency that helps brands tell their stories and grow their businesses.
+            Execute Growth & Automate
           </p>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
