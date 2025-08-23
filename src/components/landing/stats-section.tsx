@@ -2,6 +2,7 @@
 
 import AnimatedCounter from '../animated-counter';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
+import { Badge } from '../ui/badge';
 
 const stats = [
   { value: 50, label: 'Video Views', suffix: 'M+' },
@@ -23,6 +24,17 @@ export default function StatsSection() {
       />
       <div className="absolute inset-0 bg-black/70 -z-10" />
       <div className="container mx-auto px-4 relative z-0">
+        <ScrollAnimationWrapper>
+          <div className="mb-16 text-center">
+            <Badge variant="outline" className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl">
+              Our Numbers
+            </Badge>
+            <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Milestones & Achievements</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
+              Our track record speaks for itself. We deliver real results that drive growth and success for our clients.
+            </p>
+          </div>
+        </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat, index) => (
