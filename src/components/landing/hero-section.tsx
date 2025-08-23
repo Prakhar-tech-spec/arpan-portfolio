@@ -32,7 +32,7 @@ export default function HeroSection() {
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
           <Button size="lg" className="mt-8 rounded-full px-8 py-6 text-lg font-semibold transition-transform hover:scale-105">
-            Let's Talk
+            BOOK YOUR FREE STRATEGY CALL
           </Button>
         </ScrollAnimationWrapper>
       </div>
