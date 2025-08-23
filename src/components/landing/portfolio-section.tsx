@@ -4,40 +4,75 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 import { ArrowUpRight } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from '../ui/button';
+import { cn } from '@/lib/utils';
 
 const portfolioItems = [
   {
-    title: 'Project Alpha',
-    category: 'Brand Identity',
+    title: 'Cinematic Ad Campaign',
+    category: 'Video Editing',
     imageUrl: 'https://placehold.co/600x800.png',
-    dataAiHint: 'modern branding',
+    dataAiHint: 'cinematic video',
   },
   {
-    title: 'Project Beta',
-    category: 'Web Design',
+    title: 'E-commerce App Launch',
+    category: 'Web & App',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'minimalist website',
+    dataAiHint: 'mobile application',
   },
   {
-    title: 'Project Gamma',
-    category: 'Social Media Campaign',
+    title: 'Viral Social Challenge',
+    category: 'Social Media',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'social media',
+    dataAiHint: 'social media marketing',
   },
   {
-    title: 'Project Delta',
-    category: 'E-commerce',
+    title: 'Lead Gen Google Ads',
+    category: 'Paid Ads',
     imageUrl: 'https://placehold.co/600x800.png',
-    dataAiHint: 'online store',
+    dataAiHint: 'data analytics',
+  },
+  {
+    title: 'YouTube Channel Branding',
+    category: 'Graphics & Thumbnails',
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'youtube thumbnail',
+  },
+  {
+    title: 'Customer Service Bot',
+    category: 'AI Agents',
+    imageUrl: 'https://placehold.co/600x800.png',
+    dataAiHint: 'ai robot',
+  },
+  {
+    title: 'Product Demo Video',
+    category: 'Video Editing',
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'video production',
+  },
+  {
+    title: 'SaaS Platform UI/UX',
+    category: 'Web & App',
+    imageUrl: 'https://placehold.co/600x800.png',
+    dataAiHint: 'dashboard ui',
   },
 ];
 
+const filters = ['All Work', 'Video Editing', 'Graphics & Thumbnails', 'Web & App', 'Paid Ads', 'Social Media', 'AI Agents'];
+
 export default function PortfolioSection() {
+  const [activeFilter, setActiveFilter] = useState('All Work');
+
+  const filteredItems = activeFilter === 'All Work'
+    ? portfolioItems
+    : portfolioItems.filter((item) => item.category === activeFilter);
+
   return (
     <section id="portfolio" className="py-20 md:py-32 bg-secondary">
       <div className="container mx-auto px-4">
         <ScrollAnimationWrapper>
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Our Work</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
               Take a look at some of the successful projects we've delivered for our clients.
@@ -45,9 +80,27 @@ export default function PortfolioSection() {
           </div>
         </ScrollAnimationWrapper>
 
+        <ScrollAnimationWrapper>
+          <div className="mb-12 flex flex-wrap justify-center gap-2 md:gap-4">
+            {filters.map((filter) => (
+              <Button
+                key={filter}
+                variant="outline"
+                className={cn(
+                  'rounded-full border-gray-700 bg-transparent text-gray-400 transition-all hover:bg-gray-800 hover:text-white',
+                  activeFilter === filter && 'border-white bg-white text-black'
+                )}
+                onClick={() => setActiveFilter(filter)}
+              >
+                {filter}
+              </Button>
+            ))}
+          </div>
+        </ScrollAnimationWrapper>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {portfolioItems.map((item, index) => (
-            <ScrollAnimationWrapper key={index}>
+          {filteredItems.map((item, index) => (
+            <ScrollAnimationWrapper key={`${item.title}-${index}`}>
               <Card className="group relative overflow-hidden rounded-xl border-none h-full">
                 <Image
                   src={item.imageUrl}
