@@ -1,28 +1,38 @@
 'use client';
-import { Target, PenTool, TrendingUp, Megaphone } from 'lucide-react';
+import { Target, PenTool, TrendingUp, Megaphone, Film, Palette, Bot, Codepen } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 
 const services = [
   {
-    icon: <Target className="h-10 w-10 text-white" />,
-    title: 'Digital Strategy',
-    description: 'Crafting bespoke digital strategies that align with your brand’s vision and drive measurable results.',
-  },
-  {
-    icon: <PenTool className="h-10 w-10 text-white" />,
-    title: 'Content Creation',
-    description: 'Producing compelling content that engages your audience and communicates your brand’s story effectively.',
-  },
-  {
-    icon: <TrendingUp className="h-10 w-10 text-white" />,
-    title: 'SEO & Growth',
-    description: 'Optimizing your online presence to increase visibility, attract organic traffic, and achieve sustainable growth.',
-  },
-  {
     icon: <Megaphone className="h-10 w-10 text-white" />,
-    title: 'Social Media Marketing',
-    description: 'Building and nurturing communities on social media to amplify your brand message and foster loyalty.',
+    title: 'Social Media Strategy & Management',
+    description: 'Developing and executing comprehensive social media strategies to grow your brand and engage your audience.',
+  },
+  {
+    icon: <Film className="h-10 w-10 text-white" />,
+    title: 'Video Editing',
+    description: 'Professional video editing services to create stunning visuals that capture attention and tell your story.',
+  },
+  {
+    icon: <Palette className="h-10 w-10 text-white" />,
+    title: 'YouTube Thumbnails & Graphic Design',
+    description: 'Creative graphic design for eye-catching YouTube thumbnails and other branding materials to make you stand out.',
+  },
+  {
+    icon: <Target className="h-10 w-10 text-white" />,
+    title: 'Paid Ads (Primary Expertise)',
+    description: 'Expertly managed paid advertising campaigns to drive targeted traffic, generate leads, and maximize your ROI.',
+  },
+  {
+    icon: <Codepen className="h-10 w-10 text-white" />,
+    title: 'Web & App Development',
+    description: 'Custom web and mobile application development to bring your ideas to life with seamless user experiences.',
+  },
+  {
+    icon: <Bot className="h-10 w-10 text-white" />,
+    title: 'AI Agents & Automation Setups',
+    description: 'Implementing AI-powered agents and automation to streamline your business processes and enhance efficiency.',
   },
 ];
 
@@ -64,7 +74,7 @@ export default function ServicesSection() {
             </p>
           </div>
         </ScrollAnimationWrapper>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <ScrollAnimationWrapper key={index} className="h-full">
               <ServiceCard {...service} />
