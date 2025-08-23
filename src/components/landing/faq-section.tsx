@@ -32,7 +32,7 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section id="faq" className="py-20 md:py-32 bg-secondary">
+    <section id="faq" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <ScrollAnimationWrapper>
           <div className="mb-16 text-center">

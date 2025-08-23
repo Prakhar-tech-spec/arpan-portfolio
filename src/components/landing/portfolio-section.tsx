@@ -81,7 +81,7 @@ export default function PortfolioSection() {
     : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-secondary">
+    <section id="portfolio" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <ScrollAnimationWrapper>
           <div className="mb-12 text-center">

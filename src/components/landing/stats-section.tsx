@@ -12,7 +12,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section id="stats" className="py-20 md:py-32 bg-black">
+    <section id="stats" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <ScrollAnimationWrapper>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
