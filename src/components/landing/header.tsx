@@ -52,9 +52,9 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
           <Logo />
           <nav className="hidden md:flex items-center space-x-6">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Link
-                key={item.href}
+                key={index}
                 href={item.href}
                 className="text-sm font-light text-gray-300 transition-colors hover:text-white"
               >
