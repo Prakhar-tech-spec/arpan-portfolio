@@ -81,7 +81,7 @@ export default function ServicesSection() {
             <Badge variant="outline" className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl">Our Expertise</Badge>
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Crafting Excellence Daily</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
-              We deliver a complete suite of marketing services to transform your brand.
+              We deliver a complete suite of marketing services.
             </p>
           </div>
         </ScrollAnimationWrapper>

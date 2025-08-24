@@ -66,7 +66,7 @@ export default function ContactSection() {
             </Badge>
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">Create Something Great</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
-              Ready to start your next adventure? Drop us a line.
+              Ready to start your next adventure?
             </p>
           </div>
         </ScrollAnimationWrapper>
@@ -76,7 +76,7 @@ export default function ContactSection() {
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-white">Contact Information</h3>
               <p className="text-gray-400">
-                Our team is ready to answer your questions and help you get started on your project.
+                Our team is ready to answer your questions.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">

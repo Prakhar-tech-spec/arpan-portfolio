@@ -72,7 +72,7 @@ export default function TestimonialsSection() {
             </Badge>
             <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">What Our Clients Say</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
-              We're proud to have earned the trust of amazing brands.
+              We're proud to have earned their trust.
             </p>
           </div>
         </ScrollAnimationWrapper>

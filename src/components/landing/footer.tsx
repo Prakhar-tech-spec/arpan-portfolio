@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Twitter, Linkedin, Instagram, Facebook } from 'lucide-react';
 import Logo from '@/components/logo';
 import { Separator } from '../ui/separator';
+import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 
 const socialLinks = [
   {
@@ -20,28 +21,30 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="bg-black/30 backdrop-blur-lg">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <Logo />
-          <div className="flex items-center space-x-4">
-            {socialLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                className="text-gray-400 transition-colors hover:text-white"
-                aria-label={link.name}
-              >
-                {link.icon}
-              </Link>
-            ))}
+      <ScrollAnimationWrapper>
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <Logo />
+            <div className="flex items-center space-x-4">
+              {socialLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  className="text-gray-400 transition-colors hover:text-white"
+                  aria-label={link.name}
+                >
+                  {link.icon}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <Separator className="my-6 bg-gray-800" />
+          <div className="text-center text-sm text-gray-500">
+            © {new Date().getFullYear()} ADVENTURE Marketing. All Rights Reserved.
           </div>
         </div>
-        <Separator className="my-6 bg-gray-800" />
-        <div className="text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} ADVENTURE Marketing. All Rights Reserved.
-        </div>
-      </div>
+      </ScrollAnimationWrapper>
     </footer>
   );
 }
