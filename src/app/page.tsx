@@ -7,6 +7,7 @@ import TestimonialsSection from '@/components/landing/testimonials-section';
 import FaqSection from '@/components/landing/faq-section';
 import ContactSection from '@/components/landing/contact-section';
 import Footer from '@/components/landing/footer';
+import ConsultationSection from '@/components/landing/consultation-section';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <PortfolioSection />
         <TestimonialsSection />
         <FaqSection />
+        <ConsultationSection />
         <ContactSection />
       </main>
       <Footer />
