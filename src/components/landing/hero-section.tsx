@@ -21,11 +21,11 @@ export default function HeroSection() {
         <ScrollAnimationWrapper className="w-full">
           <div className="inline-flex items-center justify-center rounded-full bg-gray-900/50 backdrop-blur-2xl border border-white/10 px-3 py-1.5 mb-4">
             <div className="flex items-center space-x-1 text-white">
-              <Star className="h-4 w-4 fill-current" />
-              <Star className="h-4 w-4 fill-current" />
-              <Star className="h-4 w-4 fill-current" />
-              <Star className="h-4 w-4 fill-current" />
-              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-white" />
+              <Star className="h-4 w-4 fill-white" />
+              <Star className="h-4 w-4 fill-white" />
+              <Star className="h-4 w-4 fill-white" />
+              <Star className="h-4 w-4 fill-white" />
             </div>
             <span className="ml-2 text-xs font-medium text-white">4.9 Stars</span>
           </div>
@@ -50,7 +50,7 @@ export default function HeroSection() {
           </Button>
         </ScrollAnimationWrapper>
       </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:block">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
         <ArrowDown className="h-8 w-8 text-white animate-bounce" />
       </div>
 
