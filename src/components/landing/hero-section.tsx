@@ -43,7 +43,7 @@ export default function HeroSection() {
           </p>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
-          <Button asChild size="lg" className="mt-8 rounded-full px-6 py-4 text-base font-semibold md:px-8 md:py-6 md:text-lg">
+          <Button asChild size="lg" className="mt-8 rounded-full text-base font-semibold md:text-lg px-6 py-4 md:px-8 md:py-6">
             <Link href="https://calendly.com/arpanadventure/30min" target="_blank">
               BOOK YOUR FREE STRATEGY CALL
             </Link>
