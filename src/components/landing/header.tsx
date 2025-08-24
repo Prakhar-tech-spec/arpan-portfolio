@@ -75,7 +75,7 @@ export default function Header() {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden bg-black/80 backdrop-blur-lg pb-4">
+        <div className="md:hidden bg-black/60 backdrop-blur-xl border-t border-gray-800 p-4">
           <nav className="flex flex-col items-center space-y-4">
             {navItems.map((item, index) => (
               <Link
