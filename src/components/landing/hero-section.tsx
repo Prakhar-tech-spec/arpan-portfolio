@@ -43,11 +43,24 @@ export default function HeroSection() {
           </p>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
-          <Button asChild size="lg" className="mt-8 rounded-full px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold">
+          <Button asChild size="lg" className="mt-8 rounded-full px-6 py-4 text-base font-semibold md:px-8 md:py-6 md:text-lg">
             <Link href="https://calendly.com/arpanadventure/30min" target="_blank">
               BOOK YOUR FREE STRATEGY CALL
             </Link>
           </Button>
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper className="mt-8 md:hidden">
+          <div className="flex justify-center space-x-6">
+            <Link href="https://www.instagram.com/arpanigcoach?igsh=OGRuNnRyeHVqNzBr" aria-label="Instagram" target="_blank">
+              <Instagram className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
+            </Link>
+            <Link href="https://www.facebook.com" aria-label="Facebook" target="_blank">
+              <Facebook className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
+            </Link>
+            <Link href="https://www.linkedin.com/in/arpan-dey-5369212a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" target="_blank">
+              <Linkedin className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
+            </Link>
+          </div>
         </ScrollAnimationWrapper>
       </div>
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
