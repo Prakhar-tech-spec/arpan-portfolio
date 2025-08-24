@@ -7,50 +7,48 @@ import { Badge } from '../ui/badge';
 
 const testimonials = [
   {
-    quote: "ADVENTURE Marketing transformed our online presence. Their strategic approach to SEO and content doubled our traffic in just six months. A truly remarkable team!",
-    name: 'Jane Doe',
-    title: 'CEO, Innovate Inc.',
+    quote:
+      'I have grown my followers from 30k-50k and with 24M+ views and 2000+ organic leads in just 3 months also I have tried their AI Agents who handles and set appointments with our closest very smoothly and saves our tons of time and Money! The One Stop Solution For business Arpan (Adventure Marketing)',
+    name: 'Sudhir kove',
+    title: 'Entrepreneur',
     image: 'https://placehold.co/100x100.png',
-    dataAiHint: 'professional woman',
+    dataAiHint: 'professional man',
   },
   {
-    quote: "The creativity and dedication of the ADVENTURE team are unparalleled. They delivered a campaign that not only met but exceeded all our expectations. Highly recommended!",
-    name: 'John Smith',
-    title: 'Founder, Tech Solutions',
+    quote:
+      'The Ultimate Guy to handle my all needs for my business he is the man who takes care my whole marketing organic and inorganic very responsibly and his strategies are stunning and fully result oriented.',
+    name: 'Aman Asati',
+    title: 'Business Owner',
     image: 'https://placehold.co/100x100.png',
     dataAiHint: 'smiling man',
   },
   {
-    quote: "Working with ADVENTURE was a game-changer. Their insights into our brand and audience were spot-on, leading to a significant increase in engagement and conversions.",
-    name: 'Emily White',
-    title: 'Marketing Director, Lifestyle Co.',
+    quote:
+      'Arpan Generated 10M+ views and 30k+followers in 4months for my clients pages and have made absolutely smooth AI automations for my clients ( That generated my clients lakhs rs of business) .Also have given Stunning Results on our clients ads that was managed by Arpan',
+    name: 'Sidhartha Chowdhury',
+    title: 'Agency Owner',
     image: 'https://placehold.co/100x100.png',
     dataAiHint: 'business person',
   },
   {
-    quote: "ADVENTURE Marketing transformed our online presence. Their strategic approach to SEO and content doubled our traffic in just six months. A truly remarkable team!",
-    name: 'Jane Doe',
-    title: 'CEO, Innovate Inc.',
+    quote:
+      'Arpan is the guy who worked for our content edits and UGC videos, also paid campaigns. We have generated thousands of leads. The Perfect Result Oriented Guy who generated us an unbelievable result in just 4 months.',
+    name: 'Prathyusha',
+    title: 'Marketing Head',
     image: 'https://placehold.co/100x100.png',
     dataAiHint: 'professional woman',
   },
   {
-    quote: "The creativity and dedication of the ADVENTURE team are unparalleled. They delivered a campaign that not only met but exceeded all our expectations. Highly recommended!",
-    name: 'John Smith',
-    title: 'Founder, Tech Solutions',
+    quote:
+      'Arpan has Build us a stunning Website for my business. Also he have done SEO and GMB for us that is generating unlimited leads for my business. Good work and keep it up Team Adventure (Arpan)',
+    name: 'Subhrangshu Mahakud',
+    title: 'Founder',
     image: 'https://placehold.co/100x100.png',
     dataAiHint: 'smiling man',
-  },
-  {
-    quote: "Working with ADVENTURE was a game-changer. Their insights into our brand and audience were spot-on, leading to a significant increase in engagement and conversions.",
-    name: 'Emily White',
-    title: 'Marketing Director, Lifestyle Co.',
-    image: 'https://placehold.co/100x100.png',
-    dataAiHint: 'business person',
   },
 ];
 
-const duplicatedTestimonials = [...testimonials, ...testimonials];
+const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
 
 export default function TestimonialsSection() {
   return (

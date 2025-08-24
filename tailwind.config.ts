@@ -87,13 +87,13 @@ export default {
         },
         scroll: {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(calc(-350px * 6))' },
+          '100%': { transform: 'translateX(calc(-450px * 5))' },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'scroll': 'scroll 40s linear infinite',
+        'scroll': 'scroll 60s linear infinite',
       },
     },
   },
