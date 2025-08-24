@@ -6,7 +6,14 @@ import { Button } from '@/components/ui/button';
 import Logo from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
-import { Cross as Hamburger } from 'hamburger-react'
+import { Cross as Hamburger } from 'hamburger-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 const navItems = [
   { href: '#services', label: 'Services' },
@@ -18,7 +25,9 @@ const navItems = [
       <span className="flex items-center">
         Tools
         <sup className="ml-1.5 -mt-2">
-          <Badge variant="secondary" className="text-xs bg-gray-700 text-gray-300">Soon</Badge>
+          <Badge variant="secondary" className="text-xs bg-gray-700 text-gray-300">
+            Soon
+          </Badge>
         </sup>
       </span>
     ),
@@ -39,7 +48,8 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const whatsAppUrl = "https://api.whatsapp.com/send?phone=917029757375&text=Hi!%20I%E2%80%99m%20interested%20in%20your%20done-for-you%20creative%20and%20growth%20services.%20Can%20we%20connect%20to%20discuss%20what%20might%20be%20the%20best%20fit%3F";
+  const whatsAppUrl =
+    'https://api.whatsapp.com/send?phone=917029757375&text=Hi!%20I%E2%80%99m%20interested%20in%20your%20done-for-you%20creative%20and%20growth%20services.%20Can%20we%20connect%20to%20discuss%20what%20might%20be%20the%20best%20fit%3F';
 
   return (
     <header
@@ -63,38 +73,61 @@ export default function Header() {
             ))}
           </nav>
           <div className="hidden md:block">
-            <Button asChild variant="outline" className="rounded-full border-gray-600 hover:bg-white hover:text-black">
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-gray-600 hover:bg-white hover:text-black"
+            >
               <Link href={whatsAppUrl} target="_blank">
                 Let's Chat
               </Link>
             </Button>
           </div>
           <div className="md:hidden -mr-2 text-white">
-             <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} size={24} />
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild>
+                <button aria-label="Open menu">
+                  <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} size={24} />
+                </button>
+              </SheetTrigger>
+              <SheetContent
+                side="left"
+                className="w-[80vw] bg-black/80 backdrop-blur-xl border-r-gray-800 text-white p-0"
+              >
+                <SheetHeader className="p-6 border-b border-gray-800">
+                  <SheetTitle>
+                    <Logo />
+                  </SheetTitle>
+                </SheetHeader>
+                <div className="p-6">
+                  <nav className="flex flex-col items-start space-y-6">
+                    {navItems.map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="text-xl font-light text-gray-300 transition-colors hover:text-white"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-full mt-4 rounded-full border-gray-600 hover:bg-white hover:text-black"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <Link href={whatsAppUrl} target="_blank">
+                        Let's Chat
+                      </Link>
+                    </Button>
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
-      {isMenuOpen && (
-        <div className="md:hidden bg-black/60 backdrop-blur-xl border-t border-gray-800 p-4">
-          <nav className="flex flex-col items-center space-y-4">
-            {navItems.map((item, index) => (
-              <Link
-                key={index}
-                href={item.href}
-                className="text-lg font-light text-gray-300 transition-colors hover:text-white"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-             <Button asChild variant="outline" className="rounded-full border-gray-600 hover:bg-white hover:text-black" onClick={() => setIsMenuOpen(false)}>
-               <Link href={whatsAppUrl} target="_blank">
-                Let's Chat
-               </Link>
-            </Button>
-          </nav>
-        </div>
-      )}
     </header>
   );
 }
