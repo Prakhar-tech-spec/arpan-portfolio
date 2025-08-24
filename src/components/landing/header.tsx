@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/logo';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Cross as Hamburger } from 'hamburger-react'
 
 const navItems = [
   { href: '#services', label: 'Services' },
@@ -39,8 +39,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   const whatsAppUrl = "https://api.whatsapp.com/send?phone=917029757375&text=Hi!%20I%E2%80%99m%20interested%20in%20your%20done-for-you%20creative%20and%20growth%20services.%20Can%20we%20connect%20to%20discuss%20what%20might%20be%20the%20best%20fit%3F";
 
   return (
@@ -71,10 +69,8 @@ export default function Header() {
               </Link>
             </Button>
           </div>
-          <div className="md:hidden">
-            <Button onClick={toggleMenu} variant="ghost" size="icon">
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+          <div className="md:hidden -mr-2">
+             <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} size={24} />
           </div>
         </div>
       </div>
