@@ -7,13 +7,7 @@ import Logo from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Cross as Hamburger } from 'hamburger-react';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const navItems = [
   { href: '#services', label: 'Services' },
@@ -55,7 +49,7 @@ export default function Header() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-black/60 backdrop-blur-lg border-b border-gray-800' : 'bg-transparent'
+        isScrolled || isMenuOpen ? 'bg-black/60 backdrop-blur-lg border-b border-gray-800' : 'bg-transparent'
       )}
     >
       <div className="container mx-auto px-4">
@@ -84,50 +78,48 @@ export default function Header() {
             </Button>
           </div>
           <div className="md:hidden -mr-2 text-white">
-            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-              <SheetTrigger asChild>
-                <button aria-label="Open menu">
-                  <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} size={24} />
-                </button>
-              </SheetTrigger>
-              <SheetContent
-                side="left"
-                className="w-[80vw] bg-black/80 backdrop-blur-xl border-r-gray-800 text-white p-0"
-              >
-                <SheetHeader className="p-6 border-b border-gray-800">
-                  <SheetTitle>
-                    <Logo />
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="p-6">
-                  <nav className="flex flex-col items-start space-y-6">
-                    {navItems.map((item, index) => (
-                      <Link
-                        key={index}
-                        href={item.href}
-                        className="text-xl font-light text-gray-300 transition-colors hover:text-white"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full mt-4 rounded-full border-gray-600 hover:bg-white hover:text-black"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <Link href={whatsAppUrl} target="_blank">
-                        Let's Chat
-                      </Link>
-                    </Button>
-                  </nav>
-                </div>
-              </SheetContent>
-            </Sheet>
+            <button aria-label="Open menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <Hamburger toggled={isMenuOpen} size={24} />
+            </button>
           </div>
         </div>
       </div>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden absolute top-20 left-0 w-full bg-black/80 backdrop-blur-xl border-t border-gray-800"
+          >
+            <div className="container mx-auto px-4 py-8">
+              <nav className="flex flex-col items-start space-y-6">
+                {navItems.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="text-xl font-light text-gray-300 transition-colors hover:text-white"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full mt-4 rounded-full border-gray-600 hover:bg-white hover:text-black"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Link href={whatsAppUrl} target="_blank">
+                    Let's Chat
+                  </Link>
+                </Button>
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
