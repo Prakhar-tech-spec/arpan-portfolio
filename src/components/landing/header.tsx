@@ -69,7 +69,7 @@ export default function Header() {
               </Link>
             </Button>
           </div>
-          <div className="md:hidden -mr-2">
+          <div className="md:hidden -mr-2 text-white">
              <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} size={24} />
           </div>
         </div>
