@@ -48,7 +48,18 @@ const testimonials = [
   },
 ];
 
+const videoTestimonials = [
+  {
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103330/5_VS_110_Edit_tak92b.mp4',
+  },
+  {
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Faceless_Edit_ssi28c.mp4',
+  },
+];
+
 const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
+const duplicatedVideoTestimonials = [...videoTestimonials, ...videoTestimonials, ...videoTestimonials, ...videoTestimonials, ...videoTestimonials, ...videoTestimonials];
+
 
 export default function TestimonialsSection() {
   return (
@@ -74,41 +85,69 @@ export default function TestimonialsSection() {
             </p>
           </div>
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper>
-           <div
-            className="group relative w-full overflow-hidden"
-            style={{
-              maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-            }}
-          >
-            <div className="flex w-max animate-scroll">
-              {duplicatedTestimonials.map((testimonial, index) => (
-                <div key={index} className="w-[350px] flex-shrink-0 px-4 md:w-[450px]">
-                  <Card className="h-full rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-2xl">
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <p className="flex-grow text-lg text-gray-300 italic">"{testimonial.quote}"</p>
-                      <div className="mt-6 flex items-center">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          width={50}
-                          height={50}
-                          data-ai-hint={testimonial.dataAiHint}
-                          className="rounded-full"
-                        />
-                        <div className="ml-4">
-                          <p className="font-semibold text-white">{testimonial.name}</p>
-                          <p className="text-sm text-gray-400">{testimonial.title}</p>
+        <div className="space-y-8">
+          <ScrollAnimationWrapper>
+            <div
+              className="group relative w-full overflow-hidden"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+              }}
+            >
+              <div className="flex w-max animate-scroll">
+                {duplicatedTestimonials.map((testimonial, index) => (
+                  <div key={index} className="w-[350px] flex-shrink-0 px-4 md:w-[450px]">
+                    <Card className="h-full rounded-xl border border-white/10 bg-gray-500/10 backdrop-blur-2xl">
+                      <CardContent className="p-6 flex flex-col h-full">
+                        <p className="flex-grow text-lg text-gray-300 italic">"{testimonial.quote}"</p>
+                        <div className="mt-6 flex items-center">
+                          <Image
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            width={50}
+                            height={50}
+                            data-ai-hint={testimonial.dataAiHint}
+                            className="rounded-full"
+                          />
+                          <div className="ml-4">
+                            <p className="font-semibold text-white">{testimonial.name}</p>
+                            <p className="text-sm text-gray-400">{testimonial.title}</p>
+                          </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </ScrollAnimationWrapper>
+          </ScrollAnimationWrapper>
+          <ScrollAnimationWrapper>
+            <div
+              className="group relative w-full overflow-hidden"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+              }}
+            >
+              <div className="flex w-max animate-scroll-reverse">
+                {duplicatedVideoTestimonials.map((testimonial, index) => (
+                  <div key={index} className="w-[250px] flex-shrink-0 px-4 md:w-[300px]">
+                    <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
+                      <video
+                        src={testimonial.videoUrl}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                      />
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollAnimationWrapper>
+        </div>
       </div>
     </section>
   );
