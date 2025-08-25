@@ -11,19 +11,19 @@ import { Badge } from '../ui/badge';
 
 const portfolioItems = [
   {
-    title: 'Cinematic Ad Campaign',
+    title: '$5 VS $110 Edit',
     category: 'Video Editing',
     videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103330/5_VS_110_Edit_tak92b.mp4',
     dataAiHint: 'cinematic video',
   },
   {
-    title: 'Product Demo Video',
+    title: 'Faceless Video Edit',
     category: 'Video Editing',
     videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Faceless_Edit_ssi28c.mp4',
     dataAiHint: 'video production',
   },
   {
-    title: 'Brand Story Film',
+    title: 'Before VS After',
     category: 'Video Editing',
     videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Before_VS_After_n18z9q.mp4',
     dataAiHint: 'filmmaking camera',
