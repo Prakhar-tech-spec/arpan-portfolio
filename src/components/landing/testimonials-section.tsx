@@ -11,7 +11,7 @@ const testimonials = [
       'I have grown my followers from 30k-50k and with 24M+ views and 2000+ organic leads in just 3 months also I have tried their AI Agents who handles and set appointments with our closest very smoothly and saves our tons of time and Money! The One Stop Solution For business Arpan (Adventure Marketing)',
     name: 'Sudhir Kove',
     title: 'Coach',
-    image: 'https://placehold.co/100x100.png',
+    image: 'https://i.postimg.cc/VLcm0kPf/Whats-App-Image-2025-06-03-at-7-47-56-PM.jpg',
     dataAiHint: 'professional man',
   },
   {
