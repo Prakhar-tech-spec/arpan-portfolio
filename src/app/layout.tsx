@@ -4,7 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'ADVENTURE Marketing - Elevate Your Brand',
+  title: 'Adventure Marketing',
   description: 'A stunning landing page for ADVENTURE Marketing agency.',
 };
 
