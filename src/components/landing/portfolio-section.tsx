@@ -13,19 +13,19 @@ const portfolioItems = [
   {
     title: 'Cinematic Ad Campaign',
     category: 'Video Editing',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103330/5_VS_110_Edit_tak92b.mp4',
     dataAiHint: 'cinematic video',
   },
   {
     title: 'Product Demo Video',
     category: 'Video Editing',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Faceless_Edit_ssi28c.mp4',
     dataAiHint: 'video production',
   },
   {
     title: 'Brand Story Film',
     category: 'Video Editing',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Before_VS_After_n18z9q.mp4',
     dataAiHint: 'filmmaking camera',
   },
   {
@@ -119,14 +119,25 @@ export default function PortfolioSection() {
           {filteredItems.map((item, index) => (
             <ScrollAnimationWrapper key={`${item.title}-${index}`} className={cn(item.category === 'Video Editing' ? 'md:col-span-1' : 'md:col-span-1')}>
               <Card className={cn("group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm", item.category === 'Video Editing' ? 'aspect-[9/16]' : 'aspect-video')}>
-                <Image
-                  src={item.imageUrl}
-                  alt={item.title}
-                  width={item.category === 'Video Editing' ? 900 : 1600}
-                  height={item.category === 'Video Editing' ? 1600 : 900}
-                  data-ai-hint={item.dataAiHint}
-                  className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                />
+                {'videoUrl' in item ? (
+                  <video
+                    src={item.videoUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+                ) : (
+                  <Image
+                    src={item.imageUrl!}
+                    alt={item.title}
+                    width={1600}
+                    height={900}
+                    data-ai-hint={item.dataAiHint}
+                    className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
                   <div className="transition-transform duration-500 group-hover:-translate-y-4">
