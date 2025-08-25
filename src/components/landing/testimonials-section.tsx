@@ -2,8 +2,9 @@
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
-import { cn } from '@/lib/utils';
 import { Badge } from '../ui/badge';
+import React, { useState, useRef, useEffect } from 'react';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 const testimonials = [
   {
@@ -58,6 +59,94 @@ const videoTestimonials = [
 ];
 
 const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
+
+const VideoTestimonialCard = ({ videoUrl }: { videoUrl: string | undefined }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlayPause = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  useEffect(() => {
+    // This is to synchronize the state in case the browser's default controls are used.
+    const video = videoRef.current;
+    if (video) {
+      const handlePlay = () => setIsPlaying(true);
+      const handlePause = () => setIsPlaying(false);
+      const handleVolumeChange = () => setIsMuted(video.muted);
+
+      video.addEventListener('play', handlePlay);
+      video.addEventListener('pause', handlePause);
+      video.addEventListener('volumechange', handleVolumeChange);
+
+      return () => {
+        video.removeEventListener('play', handlePlay);
+        video.removeEventListener('pause', handlePause);
+        video.removeEventListener('volumechange', handleVolumeChange);
+      };
+    }
+  }, []);
+
+  return (
+    <div className="w-[250px] flex-shrink-0 md:w-[300px]">
+      <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
+        {videoUrl ? (
+          <>
+            <video
+              ref={videoRef}
+              src={videoUrl}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+              onClick={(e) => {
+                e.preventDefault();
+                togglePlayPause(e as any);
+              }}
+            />
+            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute bottom-4 left-4 flex items-center gap-2">
+              <button
+                onClick={togglePlayPause}
+                className="p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+              >
+                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+              </button>
+              <button
+                onClick={toggleMute}
+                className="p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+              >
+                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="h-full w-full bg-black/50 border border-dashed border-gray-700 rounded-xl" />
+        )}
+      </Card>
+    </div>
+  );
+};
 
 export default function TestimonialsSection() {
   return (
@@ -122,22 +211,7 @@ export default function TestimonialsSection() {
           <ScrollAnimationWrapper>
             <div className="flex justify-center gap-8">
               {videoTestimonials.map((testimonial, index) => (
-                <div key={index} className="w-[250px] flex-shrink-0 md:w-[300px]">
-                  <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
-                    {testimonial.videoUrl ? (
-                      <video
-                        src={testimonial.videoUrl}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                      />
-                    ) : (
-                      <div className="h-full w-full bg-black/50 border border-dashed border-gray-700 rounded-xl" />
-                    )}
-                  </Card>
-                </div>
+                <VideoTestimonialCard key={index} videoUrl={testimonial.videoUrl} />
               ))}
             </div>
           </ScrollAnimationWrapper>
