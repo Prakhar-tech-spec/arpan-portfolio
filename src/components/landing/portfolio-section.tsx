@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
-import { ArrowUpRight } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowUpRight, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { Badge } from '../ui/badge';
@@ -68,6 +68,110 @@ const portfolioItems = [
 
 const filters = ['All Work', 'Video Editing', 'Graphics & Thumbnails', 'Web & App', 'Paid Ads', 'Social Media', 'AI Agents'];
 
+const VideoCard = ({ videoUrl, title, category }: { videoUrl: string; title: string; category: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlayPause = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const handlePlay = () => setIsPlaying(true);
+      const handlePause = () => setIsPlaying(false);
+      const handleVolumeChange = () => setIsMuted(video.muted);
+
+      video.addEventListener('play', handlePlay);
+      video.addEventListener('pause', handlePause);
+      video.addEventListener('volumechange', handleVolumeChange);
+
+      return () => {
+        video.removeEventListener('play', handlePlay);
+        video.removeEventListener('pause', handlePause);
+        video.removeEventListener('volumechange', handleVolumeChange);
+      };
+    }
+  }, []);
+
+  return (
+    <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
+      <video
+        ref={videoRef}
+        src={videoUrl}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+        onClick={(e) => { e.preventDefault(); togglePlayPause(e as any); }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+      <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+        <div className="transition-transform duration-500 group-hover:-translate-y-4">
+          <p className="text-xs md:text-sm font-light text-gray-300">{category}</p>
+          <h3 className="text-lg md:text-2xl font-bold text-white mt-1">{title}</h3>
+        </div>
+        <ArrowUpRight className="absolute top-4 right-4 h-6 w-6 md:h-8 md:w-8 text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45" />
+      </div>
+      <div className="absolute bottom-4 left-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <button
+          onClick={togglePlayPause}
+          className="p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+        >
+          {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+        </button>
+        <button
+          onClick={toggleMute}
+          className="p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+        >
+          {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+        </button>
+      </div>
+    </Card>
+  );
+};
+
+const ImageCard = ({ imageUrl, title, category, dataAiHint }: { imageUrl: string; title: string; category: string; dataAiHint?: string }) => (
+  <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-video">
+    <Image
+      src={imageUrl}
+      alt={title}
+      width={1600}
+      height={900}
+      data-ai-hint={dataAiHint}
+      className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+    <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+      <div className="transition-transform duration-500 group-hover:-translate-y-4">
+        <p className="text-xs md:text-sm font-light text-gray-300">{category}</p>
+        <h3 className="text-lg md:text-2xl font-bold text-white mt-1">{title}</h3>
+      </div>
+      <ArrowUpRight className="absolute top-4 right-4 h-6 w-6 md:h-8 md:w-8 text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45" />
+    </div>
+  </Card>
+);
+
 export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState('All Work');
 
@@ -117,36 +221,12 @@ export default function PortfolioSection() {
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {filteredItems.map((item, index) => (
-            <ScrollAnimationWrapper key={`${item.title}-${index}`} className={cn(item.category === 'Video Editing' ? 'md:col-span-1' : 'md:col-span-1')}>
-              <Card className={cn("group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm", item.category === 'Video Editing' ? 'aspect-[9/16]' : 'aspect-video')}>
-                {'videoUrl' in item ? (
-                  <video
-                    src={item.videoUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                  />
-                ) : (
-                  <Image
-                    src={item.imageUrl!}
-                    alt={item.title}
-                    width={1600}
-                    height={900}
-                    data-ai-hint={item.dataAiHint}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
-                  <div className="transition-transform duration-500 group-hover:-translate-y-4">
-                    <p className="text-xs md:text-sm font-light text-gray-300">{item.category}</p>
-                    <h3 className="text-lg md:text-2xl font-bold text-white mt-1">{item.title}</h3>
-                  </div>
-                  <ArrowUpRight className="absolute top-4 right-4 h-6 w-6 md:h-8 md:w-8 text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45" />
-                </div>
-              </Card>
+            <ScrollAnimationWrapper key={`${item.title}-${index}`} className="md:col-span-1">
+              {'videoUrl' in item ? (
+                 <VideoCard videoUrl={item.videoUrl!} title={item.title} category={item.category} />
+              ) : (
+                <ImageCard imageUrl={item.imageUrl!} title={item.title} category={item.category} dataAiHint={item.dataAiHint} />
+              )}
             </ScrollAnimationWrapper>
           ))}
         </div>
