@@ -35,7 +35,7 @@ const testimonials = [
       'Arpan is the guy who worked for our content edits and UGC videos, also paid campaigns. We have generated thousands of leads. The Perfect Result Oriented Guy who generated us an unbelievable result in just 4 months.',
     name: 'Prathyusha',
     title: 'Influencer and UGC Head',
-    image: 'https://placehold.co/100x100.png',
+    image: 'https://i.postimg.cc/wj7f6D47/Whats-App-Image-2025-06-03-at-7-50-55-PM.jpg',
     dataAiHint: 'professional woman',
   },
   {
