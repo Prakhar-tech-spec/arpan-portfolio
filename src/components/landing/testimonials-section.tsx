@@ -9,8 +9,8 @@ const testimonials = [
   {
     quote:
       'I have grown my followers from 30k-50k and with 24M+ views and 2000+ organic leads in just 3 months also I have tried their AI Agents who handles and set appointments with our closest very smoothly and saves our tons of time and Money! The One Stop Solution For business Arpan (Adventure Marketing)',
-    name: 'Sudhir kove',
-    title: 'Entrepreneur',
+    name: 'Sudhir Kove',
+    title: 'Coach',
     image: 'https://placehold.co/100x100.png',
     dataAiHint: 'professional man',
   },
@@ -18,7 +18,7 @@ const testimonials = [
     quote:
       'The Ultimate Guy to handle my all needs for my business he is the man who takes care my whole marketing organic and inorganic very responsibly and his strategies are stunning and fully result oriented.',
     name: 'Aman Asati',
-    title: 'Business Owner',
+    title: 'Agency Owner and Coach',
     image: 'https://placehold.co/100x100.png',
     dataAiHint: 'smiling man',
   },
@@ -34,7 +34,7 @@ const testimonials = [
     quote:
       'Arpan is the guy who worked for our content edits and UGC videos, also paid campaigns. We have generated thousands of leads. The Perfect Result Oriented Guy who generated us an unbelievable result in just 4 months.',
     name: 'Prathyusha',
-    title: 'Marketing Head',
+    title: 'Influencer and UGC Head',
     image: 'https://placehold.co/100x100.png',
     dataAiHint: 'professional woman',
   },
@@ -42,7 +42,7 @@ const testimonials = [
     quote:
       'Arpan has Build us a stunning Website for my business. Also he have done SEO and GMB for us that is generating unlimited leads for my business. Good work and keep it up Team Adventure (Arpan)',
     name: 'Subhrangshu Mahakud',
-    title: 'Founder',
+    title: 'Agency Owner',
     image: 'https://placehold.co/100x100.png',
     dataAiHint: 'smiling man',
   },
