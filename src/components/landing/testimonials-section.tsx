@@ -19,7 +19,7 @@ const testimonials = [
       'The Ultimate Guy to handle my all needs for my business he is the man who takes care my whole marketing organic and inorganic very responsibly and his strategies are stunning and fully result oriented.',
     name: 'Aman Asati',
     title: 'Agency Owner and Coach',
-    image: 'https://placehold.co/100x100.png',
+    image: 'https://i.postimg.cc/W3CpHGyg/Whats-App-Image-2025-06-03-at-7-47-07-PM.jpg',
     dataAiHint: 'smiling man',
   },
   {
