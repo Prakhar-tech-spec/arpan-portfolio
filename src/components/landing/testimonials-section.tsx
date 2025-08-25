@@ -27,7 +27,7 @@ const testimonials = [
       'Arpan Generated 10M+ views and 30k+followers in 4months for my clients pages and have made absolutely smooth AI automations for my clients ( That generated my clients lakhs rs of business) .Also have given Stunning Results on our clients ads that was managed by Arpan',
     name: 'Sidhartha Chowdhury',
     title: 'Agency Owner',
-    image: 'https://placehold.co/100x100.png',
+    image: 'https://i.postimg.cc/jjyh5cHd/Whats-App-Image-2025-06-06-at-12-05-14-AM.jpg',
     dataAiHint: 'business person',
   },
   {
