@@ -43,7 +43,7 @@ const testimonials = [
       'Arpan has Build us a stunning Website for my business. Also he have done SEO and GMB for us that is generating unlimited leads for my business. Good work and keep it up Team Adventure (Arpan)',
     name: 'Subhrangshu Mahakud',
     title: 'Agency Owner',
-    image: 'https://placehold.co/100x100.png',
+    image: 'https://i.postimg.cc/15P157D4/Whats-App-Image-2025-06-03-at-7-49-57-PM.jpg',
     dataAiHint: 'smiling man',
   },
 ];
