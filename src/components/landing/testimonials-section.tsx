@@ -50,10 +50,10 @@ const testimonials = [
 
 const videoTestimonials = [
   {
-    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103330/5_VS_110_Edit_tak92b.mp4',
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103338/Video-testimonial2_b7xy4f.mp4',
   },
   {
-    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Faceless_Edit_ssi28c.mp4',
+    videoUrl: '',
   },
 ];
 
@@ -133,14 +133,18 @@ export default function TestimonialsSection() {
                 {duplicatedVideoTestimonials.map((testimonial, index) => (
                   <div key={index} className="w-[250px] flex-shrink-0 px-4 md:w-[300px]">
                     <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
-                      <video
-                        src={testimonial.videoUrl}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                      />
+                      {testimonial.videoUrl ? (
+                        <video
+                          src={testimonial.videoUrl}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                        />
+                      ) : (
+                        <div className="h-full w-full bg-black"></div>
+                      )}
                     </Card>
                   </div>
                 ))}
