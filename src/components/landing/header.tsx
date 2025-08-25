@@ -91,31 +91,33 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden absolute top-20 left-0 w-full bg-black/80 backdrop-blur-xl border-t border-gray-800"
+            className="md:hidden absolute top-20 left-0 w-full"
           >
-            <div className="container mx-auto px-4 py-8">
-              <nav className="flex flex-col items-start space-y-6">
-                {navItems.map((item, index) => (
-                  <Link
-                    key={index}
-                    href={item.href}
-                    className="text-xl font-light text-gray-300 transition-colors hover:text-white"
+             <div className="container mx-auto px-4">
+              <div className="bg-black/70 backdrop-blur-2xl border border-white/10 rounded-2xl p-6">
+                <nav className="flex flex-col items-start space-y-6">
+                  {navItems.map((item, index) => (
+                    <Link
+                      key={index}
+                      href={item.href}
+                      className="text-xl font-light text-gray-300 transition-colors hover:text-white"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full mt-4 rounded-full border-gray-600 hover:bg-white hover:text-black"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.label}
-                  </Link>
-                ))}
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full mt-4 rounded-full border-gray-600 hover:bg-white hover:text-black"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Link href={whatsAppUrl} target="_blank">
-                    Let's Chat
-                  </Link>
-                </Button>
-              </nav>
+                    <Link href={whatsAppUrl} target="_blank">
+                      Let's Chat
+                    </Link>
+                  </Button>
+                </nav>
+              </div>
             </div>
           </motion.div>
         )}
