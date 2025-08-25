@@ -53,7 +53,7 @@ const videoTestimonials = [
     videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103338/Video-testimonial2_b7xy4f.mp4',
   },
   {
-    videoUrl: '',
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756104473/WhatsApp_Video_2025-08-09_at_10.50.52_PM_re9f7m.mp4',
   },
 ];
 
