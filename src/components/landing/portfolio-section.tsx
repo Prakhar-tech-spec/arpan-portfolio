@@ -13,61 +13,61 @@ const portfolioItems = [
   {
     title: 'Cinematic Ad Campaign',
     category: 'Video Editing',
-    imageUrl: 'https://placehold.co/600x800.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'cinematic video',
   },
   {
     title: 'Product Demo Video',
     category: 'Video Editing',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'video production',
   },
   {
     title: 'Brand Story Film',
     category: 'Video Editing',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'filmmaking camera',
   },
   {
     title: 'Animated Explainer',
     category: 'Video Editing',
-    imageUrl: 'https://placehold.co/600x800.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'animation motion',
   },
   {
     title: 'E-commerce App Launch',
     category: 'Web & App',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'mobile application',
   },
   {
     title: 'SaaS Platform UI/UX',
     category: 'Web & App',
-    imageUrl: 'https://placehold.co/600x800.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'dashboard ui',
   },
   {
     title: 'Viral Social Challenge',
     category: 'Social Media',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'social media marketing',
   },
   {
     title: 'Lead Gen Google Ads',
     category: 'Paid Ads',
-    imageUrl: 'https://placehold.co/600x800.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'data analytics',
   },
   {
     title: 'YouTube Channel Branding',
     category: 'Graphics & Thumbnails',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'youtube thumbnail',
   },
   {
     title: 'Customer Service Bot',
     category: 'AI Agents',
-    imageUrl: 'https://placehold.co/600x800.png',
+    imageUrl: 'https://placehold.co/900x1600.png',
     dataAiHint: 'ai robot',
   },
 ];
@@ -78,7 +78,7 @@ export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState('All Work');
 
   const filteredItems = activeFilter === 'All Work'
-    ? portfolioItems.filter((item) => item.category === 'Video Editing').slice(0, 4)
+    ? portfolioItems
     : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
@@ -121,25 +121,25 @@ export default function PortfolioSection() {
           </div>
         </ScrollAnimationWrapper>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
           {filteredItems.map((item, index) => (
             <ScrollAnimationWrapper key={`${item.title}-${index}`}>
-              <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm">
+              <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
                 <Image
                   src={item.imageUrl}
                   alt={item.title}
-                  width={600}
-                  height={index % 3 === 0 ? 800 : 400}
+                  width={900}
+                  height={1600}
                   data-ai-hint={item.dataAiHint}
                   className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
                   <div className="transition-transform duration-500 group-hover:-translate-y-4">
-                    <p className="text-sm font-light text-gray-300">{item.category}</p>
-                    <h3 className="text-2xl font-bold text-white mt-1">{item.title}</h3>
+                    <p className="text-xs md:text-sm font-light text-gray-300">{item.category}</p>
+                    <h3 className="text-lg md:text-2xl font-bold text-white mt-1">{item.title}</h3>
                   </div>
-                  <ArrowUpRight className="absolute top-6 right-6 h-8 w-8 text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45" />
+                  <ArrowUpRight className="absolute top-4 right-4 h-6 w-6 md:h-8 md:w-8 text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45" />
                 </div>
               </Card>
             </ScrollAnimationWrapper>
