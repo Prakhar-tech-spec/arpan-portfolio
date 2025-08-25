@@ -72,7 +72,7 @@ export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState('All Work');
 
   const filteredItems = activeFilter === 'All Work'
-    ? portfolioItems
+    ? portfolioItems.filter((item) => item.category === 'Video Editing')
     : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
