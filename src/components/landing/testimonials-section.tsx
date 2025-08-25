@@ -58,8 +58,6 @@ const videoTestimonials = [
 ];
 
 const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
-const duplicatedVideoTestimonials = [...videoTestimonials, ...videoTestimonials, ...videoTestimonials, ...videoTestimonials, ...videoTestimonials, ...videoTestimonials];
-
 
 export default function TestimonialsSection() {
   return (
@@ -122,33 +120,25 @@ export default function TestimonialsSection() {
             </div>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
-            <div
-              className="group relative w-full overflow-hidden"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-              }}
-            >
-              <div className="flex w-max animate-scroll-reverse">
-                {duplicatedVideoTestimonials.map((testimonial, index) => (
-                  <div key={index} className="w-[250px] flex-shrink-0 px-4 md:w-[300px]">
-                    <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
-                      {testimonial.videoUrl ? (
-                        <video
-                          src={testimonial.videoUrl}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                        />
-                      ) : (
-                        <div className="h-full w-full bg-black"></div>
-                      )}
-                    </Card>
-                  </div>
-                ))}
-              </div>
+            <div className="flex justify-center gap-8">
+              {videoTestimonials.map((testimonial, index) => (
+                <div key={index} className="w-[250px] flex-shrink-0 md:w-[300px]">
+                  <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
+                    {testimonial.videoUrl ? (
+                      <video
+                        src={testimonial.videoUrl}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="h-full w-full bg-black/50 border border-dashed border-gray-700 rounded-xl" />
+                    )}
+                  </Card>
+                </div>
+              ))}
             </div>
           </ScrollAnimationWrapper>
         </div>
