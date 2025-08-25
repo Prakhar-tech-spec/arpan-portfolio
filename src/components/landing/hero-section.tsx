@@ -18,12 +18,7 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center md:items-start md:text-left text-white pb-20 md:justify-end">
-        <ScrollAnimationWrapper className="w-full"
-          animationOptions={{
-            duration: 0.5,
-            delay: 0,
-          }}
-        >
+        <ScrollAnimationWrapper className="w-full">
           <div className="inline-flex items-center justify-center rounded-full bg-gray-900/50 backdrop-blur-2xl border border-white/10 px-3 py-1.5 mb-4">
             <div className="flex items-center space-x-1 text-white">
               <Star className="h-4 w-4 fill-white" />
@@ -42,34 +37,19 @@ export default function HeroSection() {
             <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">business transformation</span>
           </h1>
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper className="w-full"
-          animationOptions={{
-            duration: 0.5,
-            delay: 0.1,
-          }}
-        >
+        <ScrollAnimationWrapper className="w-full">
           <p className="mt-6 max-w-2xl text-lg text-gray-300 md:text-xl mx-auto md:mx-0">
             Execute Growth & Automate
           </p>
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper
-          animationOptions={{
-            duration: 0.5,
-            delay: 0.2,
-          }}
-        >
+        <ScrollAnimationWrapper>
           <Button asChild size="lg" className="mt-8 rounded-full text-base font-semibold md:text-lg px-6 py-4 md:px-8 md:py-6">
             <Link href="https://calendly.com/arpanadventure/30min" target="_blank">
               BOOK YOUR FREE STRATEGY CALL
             </Link>
           </Button>
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper className="mt-8 md:hidden"
-          animationOptions={{
-            duration: 0.5,
-            delay: 0.3,
-          }}
-        >
+        <ScrollAnimationWrapper className="mt-8 md:hidden">
           <div className="flex justify-center space-x-6">
             <Link href="https://www.instagram.com/arpanigcoach?igsh=OGRuNnRyeHVqNzBr" aria-label="Instagram" target="_blank">
               <Instagram className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
@@ -83,42 +63,22 @@ export default function HeroSection() {
           </div>
         </ScrollAnimationWrapper>
       </div>
-      <ScrollAnimationWrapper className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-        animationOptions={{
-          duration: 0.5,
-          delay: 0.4,
-        }}
-      >
+      <ScrollAnimationWrapper className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
         <ArrowDown className="h-8 w-8 text-white animate-bounce" />
       </ScrollAnimationWrapper>
 
       <div className="absolute bottom-10 right-10 z-10 hidden md:flex flex-col space-y-4">
-        <ScrollAnimationWrapper
-          animationOptions={{
-            duration: 0.5,
-            delay: 0.5,
-          }}
-        >
+        <ScrollAnimationWrapper>
           <Link href="https://www.instagram.com/arpanigcoach?igsh=OGRuNnRyeHVqNzBr" aria-label="Instagram" target="_blank">
             <Instagram className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
           </Link>
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper
-          animationOptions={{
-            duration: 0.5,
-            delay: 0.6,
-          }}
-        >
+        <ScrollAnimationWrapper>
           <Link href="https://www.facebook.com" aria-label="Facebook" target="_blank">
             <Facebook className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
           </Link>
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper
-          animationOptions={{
-            duration: 0.5,
-            delay: 0.7,
-          }}
-        >
+        <ScrollAnimationWrapper>
           <Link href="https://www.linkedin.com/in/arpan-dey-5369212a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" target="_blank">
             <Linkedin className="h-6 w-6 text-white transition-colors hover:text-gray-300" />
           </Link>
