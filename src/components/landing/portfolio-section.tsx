@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 import { ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
@@ -29,45 +29,39 @@ const portfolioItems = [
     dataAiHint: 'filmmaking camera',
   },
   {
-    title: 'Animated Explainer',
-    category: 'Video Editing',
-    imageUrl: 'https://placehold.co/900x1600.png',
-    dataAiHint: 'animation motion',
-  },
-  {
     title: 'E-commerce App Launch',
     category: 'Web & App',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    imageUrl: 'https://placehold.co/1600x900.png',
     dataAiHint: 'mobile application',
   },
   {
     title: 'SaaS Platform UI/UX',
     category: 'Web & App',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    imageUrl: 'https://placehold.co/1600x900.png',
     dataAiHint: 'dashboard ui',
   },
   {
     title: 'Viral Social Challenge',
     category: 'Social Media',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    imageUrl: 'https://placehold.co/1600x900.png',
     dataAiHint: 'social media marketing',
   },
   {
     title: 'Lead Gen Google Ads',
     category: 'Paid Ads',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    imageUrl: 'https://placehold.co/1600x900.png',
     dataAiHint: 'data analytics',
   },
   {
     title: 'YouTube Channel Branding',
     category: 'Graphics & Thumbnails',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    imageUrl: 'https://placehold.co/1600x900.png',
     dataAiHint: 'youtube thumbnail',
   },
   {
     title: 'Customer Service Bot',
     category: 'AI Agents',
-    imageUrl: 'https://placehold.co/900x1600.png',
+    imageUrl: 'https://placehold.co/1600x900.png',
     dataAiHint: 'ai robot',
   },
 ];
@@ -121,15 +115,15 @@ export default function PortfolioSection() {
           </div>
         </ScrollAnimationWrapper>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {filteredItems.map((item, index) => (
-            <ScrollAnimationWrapper key={`${item.title}-${index}`}>
-              <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
+            <ScrollAnimationWrapper key={`${item.title}-${index}`} className={cn(item.category === 'Video Editing' ? 'md:col-span-1' : 'md:col-span-1')}>
+              <Card className={cn("group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm", item.category === 'Video Editing' ? 'aspect-[9/16]' : 'aspect-video')}>
                 <Image
                   src={item.imageUrl}
                   alt={item.title}
-                  width={900}
-                  height={1600}
+                  width={item.category === 'Video Editing' ? 900 : 1600}
+                  height={item.category === 'Video Editing' ? 1600 : 900}
                   data-ai-hint={item.dataAiHint}
                   className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                 />
