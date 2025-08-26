@@ -94,7 +94,7 @@ export default function Header() {
             className="md:hidden absolute top-20 left-0 w-full"
           >
              <div className="container mx-auto px-4">
-              <div className="bg-black/70 backdrop-blur-2xl border border-white/10 rounded-2xl p-6">
+              <div className="bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl p-6">
                 <nav className="flex flex-col items-start space-y-6">
                   {navItems.map((item, index) => (
                     <Link
