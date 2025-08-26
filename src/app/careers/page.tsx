@@ -5,6 +5,7 @@ import ScrollAnimationWrapper from '@/components/animations/scroll-animation-wra
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { ArrowDown } from 'lucide-react';
 
 const openPositions = [
   // {
@@ -24,7 +25,7 @@ export default function CareersPage() {
     <div className="flex min-h-screen w-full flex-col bg-black">
       <Header />
       <main className="flex-1">
-        <section className="relative py-40 md:py-56 overflow-hidden">
+        <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
           <video
             src="https://res.cloudinary.com/dj88p3xio/video/upload/v1755988879/background_gy5z5d.mp4"
             autoPlay
@@ -36,7 +37,7 @@ export default function CareersPage() {
           <div className="absolute inset-0 bg-black/70 -z-10" />
           <div className="container mx-auto px-4 relative z-10">
             <ScrollAnimationWrapper>
-              <div className="mx-auto max-w-4xl text-center">
+              <div className="mx-auto max-w-4xl">
                 <Badge
                   variant="outline"
                   className="mb-4 border-gray-600 bg-gray-800/50 text-gray-300 backdrop-blur-2xl"
@@ -52,6 +53,11 @@ export default function CareersPage() {
               </div>
             </ScrollAnimationWrapper>
           </div>
+           <ScrollAnimationWrapper className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+            <Link href="#open-positions">
+              <ArrowDown className="h-8 w-8 text-white animate-bounce" />
+            </Link>
+          </ScrollAnimationWrapper>
         </section>
 
         <section id="open-positions" className="py-20 md:py-32 bg-black text-white">
