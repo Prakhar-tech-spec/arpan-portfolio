@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import { Badge } from '../ui/badge';
 
 const formSchema = z.object({
@@ -19,7 +19,6 @@ const formSchema = z.object({
 });
 
 export default function ContactSection() {
-  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,15 +32,12 @@ export default function ContactSection() {
     try {
       // Here you would typically send the form data to your backend
       console.log(values);
-      toast({
-        title: 'Message Sent!',
+      toast.success('Message Sent!', {
         description: "We've received your message and will get back to you shortly.",
       });
       form.reset();
     } catch (error) {
-      toast({
-        variant: 'destructive',
-        title: 'Uh oh! Something went wrong.',
+      toast.error('Uh oh! Something went wrong.', {
         description: 'There was a problem with your request. Please try again.',
       });
     }

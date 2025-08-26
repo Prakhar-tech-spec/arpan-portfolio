@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Cross as Hamburger } from 'hamburger-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { toast } from 'sonner';
 
 const navItems = [
   { href: '/#services', label: 'Services' },
@@ -25,6 +26,7 @@ const navItems = [
         </sup>
       </span>
     ),
+    onClick: () => toast.info('Coming soon!', { description: 'We are working hard to bring this feature to you.' }),
   },
   { href: '/careers', label: 'Careers' },
   { href: '/#contact', label: 'Contact' },
@@ -57,9 +59,10 @@ export default function Header() {
           <Logo />
           <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item, index) => (
-              <Link
+               <Link
                 key={index}
                 href={item.href}
+                onClick={item.onClick}
                 className="text-sm font-light text-gray-300 transition-colors hover:text-white"
               >
                 {item.label}
@@ -101,7 +104,10 @@ export default function Header() {
                       key={index}
                       href={item.href}
                       className="text-xl font-light text-gray-300 transition-colors hover:text-white"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={() => {
+                        if(item.onClick) item.onClick();
+                        setIsMenuOpen(false)
+                      }}
                     >
                       {item.label}
                     </Link>
