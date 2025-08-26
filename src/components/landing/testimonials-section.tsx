@@ -4,7 +4,7 @@ import Image from 'next/image';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 import { Badge } from '../ui/badge';
 import React from 'react';
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, ArrowUpRight } from 'lucide-react';
 
 const testimonials = [
   {
@@ -51,16 +51,24 @@ const testimonials = [
 
 const videoTestimonials = [
   {
+    name: 'Subhrangshu',
     videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103338/Video-testimonial2_b7xy4f.mp4',
   },
   {
+    name: 'Raghav',
     videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756104473/WhatsApp_Video_2025-08-09_at_10.50.52_PM_re9f7m.mp4',
   },
 ];
 
 const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
 
-const VideoTestimonialCard = ({ videoUrl }: { videoUrl: string | undefined }) => {
+const VideoTestimonialCard = ({
+  videoUrl,
+  name,
+}: {
+  videoUrl: string | undefined;
+  name: string;
+}) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = React.useState(true);
   const [isMuted, setIsMuted] = React.useState(true);
@@ -124,19 +132,26 @@ const VideoTestimonialCard = ({ videoUrl }: { videoUrl: string | undefined }) =>
                 togglePlayPause(e as any);
               }}
             />
-            <div className="absolute inset-0 bg-black/20" />
-            <div className="absolute bottom-4 left-4 flex items-center gap-2">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+              <div className="transition-transform duration-500 group-hover:-translate-y-4">
+                <p className="text-xs md:text-sm font-light text-gray-300">Client Testimonial</p>
+                <h3 className="text-lg md:text-2xl font-bold text-white mt-1">{name}</h3>
+              </div>
+              <ArrowUpRight className="absolute top-4 right-4 h-6 w-6 md:h-8 md:w-8 text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45" />
+            </div>
+            <div className="absolute bottom-4 left-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <button
                 onClick={togglePlayPause}
                 className="p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
               >
-                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                {isPlaying ? <Pause size={16} /> : <Play size={16} />}
               </button>
               <button
                 onClick={toggleMute}
                 className="p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
               >
-                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
               </button>
             </div>
           </>
@@ -211,7 +226,7 @@ export default function TestimonialsSection() {
           <ScrollAnimationWrapper>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               {videoTestimonials.map((testimonial, index) => (
-                <VideoTestimonialCard key={index} videoUrl={testimonial.videoUrl} />
+                <VideoTestimonialCard key={index} videoUrl={testimonial.videoUrl} name={testimonial.name} />
               ))}
             </div>
           </ScrollAnimationWrapper>
