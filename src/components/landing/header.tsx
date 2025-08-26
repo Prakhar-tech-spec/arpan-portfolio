@@ -10,9 +10,9 @@ import { Cross as Hamburger } from 'hamburger-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const navItems = [
-  { href: '#services', label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#testimonials', label: 'Testimonials' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#portfolio', label: 'Portfolio' },
+  { href: '/#testimonials', label: 'Testimonials' },
   {
     href: '#',
     label: (
@@ -26,8 +26,8 @@ const navItems = [
       </span>
     ),
   },
-  { href: '#', label: 'Careers' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/careers', label: 'Careers' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export default function Header() {
