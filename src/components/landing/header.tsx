@@ -8,26 +8,12 @@ import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Cross as Hamburger } from 'hamburger-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { toast } from 'sonner';
 
 const navItems = [
   { href: '/#services', label: 'Services' },
   { href: '/#portfolio', label: 'Portfolio' },
   { href: '/#testimonials', label: 'Testimonials' },
-  {
-    href: '#',
-    label: (
-      <span className="flex items-center">
-        Tools
-        <sup className="ml-1.5 -mt-2">
-          <Badge variant="secondary" className="text-xs bg-gray-700 text-gray-300">
-            Soon
-          </Badge>
-        </sup>
-      </span>
-    ),
-    onClick: () => toast.info('Coming soon!', { description: 'We are working hard to bring this feature to you.' }),
-  },
+  { href: '/tools', label: 'Tools' },
   { href: '/careers', label: 'Careers' },
   { href: '/#contact', label: 'Contact' },
 ];
@@ -62,7 +48,6 @@ export default function Header() {
                <Link
                 key={index}
                 href={item.href}
-                onClick={item.onClick}
                 className="text-sm font-light text-gray-300 transition-colors hover:text-white"
               >
                 {item.label}
@@ -105,7 +90,6 @@ export default function Header() {
                       href={item.href}
                       className="text-xl font-light text-gray-300 transition-colors hover:text-white"
                       onClick={() => {
-                        if(item.onClick) item.onClick();
                         setIsMenuOpen(false)
                       }}
                     >
