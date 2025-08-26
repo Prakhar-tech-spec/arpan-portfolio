@@ -209,7 +209,7 @@ const ImageCard = ({ imageUrl, title, category, dataAiHint }: { imageUrl: string
 );
 
 export default function PortfolioSection() {
-  const [activeFilter, setActiveFilter] = useState('All Work');
+  const [activeFilter, setActiveFilter] = useState('Video Editing');
 
   const filteredItems = activeFilter === 'All Work'
     ? portfolioItems
