@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
 import { Badge } from '../ui/badge';
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 const testimonials = [
@@ -61,9 +61,9 @@ const videoTestimonials = [
 const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
 
 const VideoTestimonialCard = ({ videoUrl }: { videoUrl: string | undefined }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = React.useState(true);
+  const [isMuted, setIsMuted] = React.useState(true);
 
   const togglePlayPause = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -86,7 +86,7 @@ const VideoTestimonialCard = ({ videoUrl }: { videoUrl: string | undefined }) =>
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     // This is to synchronize the state in case the browser's default controls are used.
     const video = videoRef.current;
     if (video) {
@@ -107,7 +107,7 @@ const VideoTestimonialCard = ({ videoUrl }: { videoUrl: string | undefined }) =>
   }, []);
 
   return (
-    <div className="w-[250px] flex-shrink-0 md:w-[300px]">
+    <div className="w-full max-w-[250px] flex-shrink-0 md:max-w-[300px]">
       <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-[9/16]">
         {videoUrl ? (
           <>
@@ -209,7 +209,7 @@ export default function TestimonialsSection() {
             </div>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
-            <div className="flex justify-center gap-8">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               {videoTestimonials.map((testimonial, index) => (
                 <VideoTestimonialCard key={index} videoUrl={testimonial.videoUrl} />
               ))}
