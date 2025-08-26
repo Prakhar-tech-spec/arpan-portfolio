@@ -3,11 +3,12 @@
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import ScrollAnimationWrapper from '../animations/scroll-animation-wrapper';
-import { ArrowUpRight, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { ArrowUpRight, Play, Pause, Volume2, VolumeX, X } from 'lucide-react';
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { Badge } from '../ui/badge';
+import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
 
 const portfolioItems = [
   {
@@ -187,8 +188,8 @@ const VideoCard = ({ videoUrl, title, category }: { videoUrl: string; title: str
   );
 };
 
-const ImageCard = ({ imageUrl, title, category, dataAiHint }: { imageUrl: string; title: string; category: string; dataAiHint?: string }) => (
-  <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-video">
+const ImageCard = ({ imageUrl, title, category, dataAiHint, onImageClick }: { imageUrl: string; title: string; category: string; dataAiHint?: string; onImageClick: (url: string) => void }) => (
+  <Card className="group relative overflow-hidden rounded-xl border-none h-full bg-gray-900/50 backdrop-blur-sm aspect-video cursor-pointer" onClick={() => onImageClick(imageUrl)}>
     <Image
       src={imageUrl}
       alt={title}
@@ -210,6 +211,7 @@ const ImageCard = ({ imageUrl, title, category, dataAiHint }: { imageUrl: string
 
 export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState('Video Editing');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const filteredItems = activeFilter === 'All Work'
     ? portfolioItems
@@ -217,6 +219,22 @@ export default function PortfolioSection() {
 
   return (
     <section id="portfolio" className="relative py-20 md:py-32 overflow-hidden">
+       <Dialog open={!!selectedImage} onOpenChange={(isOpen) => !isOpen && setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl w-full p-0 bg-transparent border-none outline-none">
+          <DialogClose className="absolute -top-2 -right-2 md:-top-4 md:-right-4 z-10 bg-black/50 rounded-full p-1 text-white">
+            <X className="h-6 w-6" />
+          </DialogClose>
+          {selectedImage && (
+            <Image
+              src={selectedImage}
+              alt="Expanded portfolio image"
+              width={1600}
+              height={900}
+              className="rounded-lg object-contain w-full h-full"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
       <video
         src="https://res.cloudinary.com/dj88p3xio/video/upload/v1755988879/background_gy5z5d.mp4"
         autoPlay
@@ -264,7 +282,7 @@ export default function PortfolioSection() {
               {'videoUrl' in item ? (
                  <VideoCard videoUrl={item.videoUrl!} title={item.title} category={item.category} />
               ) : (
-                <ImageCard imageUrl={item.imageUrl!} title={item.title} category={item.category} dataAiHint={item.dataAiHint} />
+                <ImageCard imageUrl={item.imageUrl!} title={item.title} category={item.category} dataAiHint={item.dataAiHint} onImageClick={setSelectedImage} />
               )}
             </ScrollAnimationWrapper>
           ))}
