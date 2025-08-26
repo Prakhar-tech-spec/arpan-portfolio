@@ -124,7 +124,7 @@ const ContentIdeaGenerator = () => {
 };
 
 const HashtagGenerator = () => {
-  const [topic, setTopic]_useState('');
+  const [topic, setTopic] = useState('');
   const [hashtags, setHashtags] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
