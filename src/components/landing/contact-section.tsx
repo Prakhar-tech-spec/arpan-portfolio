@@ -81,14 +81,14 @@ export default function ContactSection() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Mail className="h-6 w-6 text-gray-400" />
-                  <a href="mailto:hello@adventure.com" className="text-lg text-white hover:underline">
-                    hello@adventure.com
+                  <a href="mailto:adverseee01@gmail.com" className="text-lg text-white hover:underline">
+                    adverseee01@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="h-6 w-6 text-gray-400" />
-                  <a href="tel:+1234567890" className="text-lg text-white hover:underline">
-                    +1 (234) 567-890
+                  <a href="tel:+917029757375" className="text-lg text-white hover:underline">
+                    +91 7029757375
                   </a>
                 </div>
               </div>
