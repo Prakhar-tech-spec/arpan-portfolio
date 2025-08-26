@@ -29,43 +29,43 @@ const portfolioItems = [
     dataAiHint: 'video production',
   },
   {
-    title: 'Thumbnail Design 1',
+    title: 'Design 1',
     category: 'Graphics & Thumbnails',
     imageUrl: 'https://i.postimg.cc/mgX7pHVS/portfolio-1.jpg',
     dataAiHint: 'youtube thumbnail',
   },
   {
-    title: 'Thumbnail Design 2',
+    title: 'Design 2',
     category: 'Graphics & Thumbnails',
     imageUrl: 'https://i.postimg.cc/rF91Wbr3/portfolio-2.jpg',
     dataAiHint: 'gaming thumbnail',
   },
   {
-    title: 'Thumbnail Design 3',
+    title: 'Design 3',
     category: 'Graphics & Thumbnails',
     imageUrl: 'https://i.postimg.cc/hGXTkt5R/portfolio-3.jpg',
     dataAiHint: 'vlog thumbnail',
   },
   {
-    title: 'Thumbnail Design 4',
+    title: 'Design 4',
     category: 'Graphics & Thumbnails',
     imageUrl: 'https://i.postimg.cc/BnQxCg56/portfolio-4.jpg',
     dataAiHint: 'tutorial thumbnail',
   },
   {
-    title: 'Thumbnail Design 5',
+    title: 'Design 5',
     category: 'Graphics & Thumbnails',
     imageUrl: 'https://i.postimg.cc/q7Wy4HPh/portfolio-5.jpg',
     dataAiHint: 'lifestyle thumbnail',
   },
   {
-    title: 'Thumbnail Design 6',
+    title: 'Design 6',
     category: 'Graphics & Thumbnails',
     imageUrl: 'https://i.postimg.cc/50vvtkJP/portfolio-6.jpg',
     dataAiHint: 'tech thumbnail',
   },
   {
-    title: 'Thumbnail Design 7',
+    title: 'Design 7',
     category: 'Graphics & Thumbnails',
     imageUrl: 'https://i.postimg.cc/7hkzJMYq/portfolio-7.jpg',
     dataAiHint: 'podcast thumbnail',
@@ -201,7 +201,7 @@ const ImageCard = ({ imageUrl, title, category, dataAiHint }: { imageUrl: string
     <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
       <div className="transition-transform duration-500 group-hover:-translate-y-4">
         <p className="text-xs md:text-sm font-light text-gray-300">{category}</p>
-        <h3 className="text-lg md:text-2xl font-bold text-white mt-1">{title}</h3>
+        <h3 className="text-lg md:text-xl font-bold text-white mt-1 truncate">{title}</h3>
       </div>
       <ArrowUpRight className="absolute top-4 right-4 h-6 w-6 md:h-8 md:w-8 text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45" />
     </div>
