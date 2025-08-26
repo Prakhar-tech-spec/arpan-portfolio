@@ -228,7 +228,7 @@ export default function TestimonialsSection() {
             </div>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
-            <div className="flex flex-wrap items-center justify-center gap-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
               {videoTestimonials.map((testimonial, index) => (
                 <VideoTestimonialCard key={index} videoUrl={testimonial.videoUrl} name={testimonial.name} />
               ))}

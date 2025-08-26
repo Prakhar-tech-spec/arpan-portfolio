@@ -17,16 +17,58 @@ const portfolioItems = [
     dataAiHint: 'cinematic video',
   },
   {
+    title: 'Before VS After',
+    category: 'Video Editing',
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Before_VS_After_n18z9q.mp4',
+    dataAiHint: 'filmmaking camera',
+  },
+  {
     title: 'Faceless Video Edit',
     category: 'Video Editing',
     videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Faceless_Edit_ssi28c.mp4',
     dataAiHint: 'video production',
   },
   {
-    title: 'Before VS After',
-    category: 'Video Editing',
-    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756103326/Before_VS_After_n18z9q.mp4',
-    dataAiHint: 'filmmaking camera',
+    title: 'Thumbnail Design 1',
+    category: 'Graphics & Thumbnails',
+    imageUrl: 'https://i.postimg.cc/mgX7pHVS/portfolio-1.jpg',
+    dataAiHint: 'youtube thumbnail',
+  },
+  {
+    title: 'Thumbnail Design 2',
+    category: 'Graphics & Thumbnails',
+    imageUrl: 'https://i.postimg.cc/rF91Wbr3/portfolio-2.jpg',
+    dataAiHint: 'gaming thumbnail',
+  },
+  {
+    title: 'Thumbnail Design 3',
+    category: 'Graphics & Thumbnails',
+    imageUrl: 'https://i.postimg.cc/hGXTkt5R/portfolio-3.jpg',
+    dataAiHint: 'vlog thumbnail',
+  },
+  {
+    title: 'Thumbnail Design 4',
+    category: 'Graphics & Thumbnails',
+    imageUrl: 'https://i.postimg.cc/BnQxCg56/portfolio-4.jpg',
+    dataAiHint: 'tutorial thumbnail',
+  },
+  {
+    title: 'Thumbnail Design 5',
+    category: 'Graphics & Thumbnails',
+    imageUrl: 'https://i.postimg.cc/q7Wy4HPh/portfolio-5.jpg',
+    dataAiHint: 'lifestyle thumbnail',
+  },
+  {
+    title: 'Thumbnail Design 6',
+    category: 'Graphics & Thumbnails',
+    imageUrl: 'https://i.postimg.cc/50vvtkJP/portfolio-6.jpg',
+    dataAiHint: 'tech thumbnail',
+  },
+  {
+    title: 'Thumbnail Design 7',
+    category: 'Graphics & Thumbnails',
+    imageUrl: 'https://i.postimg.cc/7hkzJMYq/portfolio-7.jpg',
+    dataAiHint: 'podcast thumbnail',
   },
   {
     title: 'E-commerce App Launch',
@@ -51,12 +93,6 @@ const portfolioItems = [
     category: 'Paid Ads',
     imageUrl: 'https://placehold.co/1600x900.png',
     dataAiHint: 'data analytics',
-  },
-  {
-    title: 'YouTube Channel Branding',
-    category: 'Graphics & Thumbnails',
-    imageUrl: 'https://placehold.co/1600x900.png',
-    dataAiHint: 'youtube thumbnail',
   },
   {
     title: 'Customer Service Bot',
@@ -176,7 +212,7 @@ export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState('All Work');
 
   const filteredItems = activeFilter === 'All Work'
-    ? portfolioItems.filter((item) => item.category === 'Video Editing')
+    ? portfolioItems
     : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
@@ -221,7 +257,10 @@ export default function PortfolioSection() {
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {filteredItems.map((item, index) => (
-            <ScrollAnimationWrapper key={`${item.title}-${index}`} className="md:col-span-1">
+            <ScrollAnimationWrapper key={`${item.title}-${index}`} className={cn(
+              item.category === 'Video Editing' ? 'aspect-[9/16]' : 'aspect-video',
+              'md:col-span-1'
+            )}>
               {'videoUrl' in item ? (
                  <VideoCard videoUrl={item.videoUrl!} title={item.title} category={item.category} />
               ) : (
