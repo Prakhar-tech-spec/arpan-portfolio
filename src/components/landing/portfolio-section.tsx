@@ -8,7 +8,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { Badge } from '../ui/badge';
-import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogClose, DialogTitle } from '@/components/ui/dialog';
 
 const portfolioItems = [
   {
@@ -221,6 +221,7 @@ export default function PortfolioSection() {
     <section id="portfolio" className="relative py-20 md:py-32 overflow-hidden">
        <Dialog open={!!selectedImage} onOpenChange={(isOpen) => !isOpen && setSelectedImage(null)}>
         <DialogContent className="max-w-4xl w-full p-0 bg-transparent border-none outline-none">
+          <DialogTitle className="sr-only">Expanded portfolio image</DialogTitle>
           <DialogClose className="absolute -top-2 -right-2 md:-top-4 md:-right-4 z-10 bg-black/50 rounded-full p-1 text-white">
             <X className="h-6 w-6" />
           </DialogClose>
