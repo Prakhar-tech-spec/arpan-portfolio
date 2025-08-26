@@ -51,7 +51,7 @@ export default function Header() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled || isMenuOpen ? 'bg-black/60 backdrop-blur-lg border-b border-gray-800' : 'bg-transparent'
+        isScrolled || isMenuOpen ? 'bg-black/80 backdrop-blur-lg border-b border-gray-800' : 'bg-transparent'
       )}
     >
       <div className="container mx-auto px-4">
