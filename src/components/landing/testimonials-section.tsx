@@ -58,6 +58,10 @@ const videoTestimonials = [
     name: 'Raghav',
     videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756104473/WhatsApp_Video_2025-08-09_at_10.50.52_PM_re9f7m.mp4',
   },
+  {
+    name: 'Prathyusha',
+    videoUrl: 'https://res.cloudinary.com/dj88p3xio/video/upload/v1756193769/WhatsApp_Video_2025-08-26_at_1.00.13_PM_vuhpks.mp4',
+  },
 ];
 
 const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
@@ -224,7 +228,7 @@ export default function TestimonialsSection() {
             </div>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="flex flex-wrap items-center justify-center gap-8">
               {videoTestimonials.map((testimonial, index) => (
                 <VideoTestimonialCard key={index} videoUrl={testimonial.videoUrl} name={testimonial.name} />
               ))}
